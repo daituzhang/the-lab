@@ -1,0 +1,25 @@
+section.staff {
+  font-size: 1.8rem;
+  color: $gray-dark;
+  padding:100px 0 50px;
+  h2 {
+    padding-bottom: 15px;
+  }
+  h3 {
+    font-size: 1.4rem;
+    padding-bottom: 25px;
+  }
+  & ~ section.staff {
+    padding-top: 50px;
+  }
+  &:last-of-type {
+    padding-bottom: 110px;
+  }
+  &:not(:last-of-type) {
+    border-bottom: none;
+  }
+  img {
+    width: 268px;
+    max-width: 100%;
+  }
+}

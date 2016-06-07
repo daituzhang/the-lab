@@ -1,0 +1,7 @@
+a#ignore sass-cache#
+.sass-cache/*
+*.scssc
+.vagrant
+.DS_Store
+
+node_modules/*

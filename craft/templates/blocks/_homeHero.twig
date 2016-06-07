@@ -1,0 +1,17 @@
+{% set backgroundImage = block.backgroundImage|length == 0 ? "" : " background: url(" ~  block.backgroundImage|first.url ~ ") no-repeat;   background-size: cover;" %}
+
+<section class="home-hero" style="{{ backgroundImage }}">
+  <div class="container">
+    {% if block.heading %}
+      <header>
+        <h1>{{ block.heading }}</h1> 
+      </header>
+    {% endif %}
+    {% if block.body %}
+      {{ block.body }}
+    {% endif %}
+    {% if block.contactButton %}
+      {% include 'include/_contactButton' %}
+    {% endif %}   
+  </div>
+</section>

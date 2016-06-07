@@ -1,0 +1,15 @@
+{% set backgroundImage = block.backgroundImage|length == 0 ? "" : " background: url(" ~  block.backgroundImage|first.url ~ ") no-repeat;   background-size: 60%;" %}
+{% set backgroundColor = block.backgroundColor == '#000000' ? "" : " background-color: " ~  block.backgroundColor ~ ";" %}
+
+<section class="one-column" style="{{ backgroundImage }}{{backgroundColor}}">
+  <div class="container">
+    {% if block.heading %}
+      <header>
+        <h2>{{ block.heading }}</h2> 
+      </header>
+    {% endif %}
+    {% if block.body %}
+      {{ block.body }}
+    {% endif %}
+  </div>
+</section>

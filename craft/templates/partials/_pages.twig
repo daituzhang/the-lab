@@ -1,0 +1,8 @@
+{% if entry.getChildren()|length %}
+  {% redirect entry.getChildren()|first.url %}
+{% endif %}
+
+{% for block in entry.blocks %}
+  {% include "blocks/_" ~ block.type %}
+{% endfor %}
+  {# {% include "_contactForm" %} #}

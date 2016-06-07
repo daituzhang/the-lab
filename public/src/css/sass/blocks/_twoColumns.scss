@@ -1,0 +1,16 @@
+.two-columns {
+  color: $white;
+  font-size: 1.8rem;
+  line-height: 1.6;
+  h2 {
+    margin-bottom: 30px;
+  }
+  .btn-contact {
+    margin-top: 40px;
+  }
+  @include desktop-only {
+    .side-container {
+      padding-left: 5%;
+    }
+  }
+}

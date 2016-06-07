@@ -1,0 +1,14 @@
+{% set backgroundColor = block.backgroundColor == '#000000' ? "" : " background-color: " ~  block.backgroundColor ~ ";" %}
+<section class="contact" style="{{ backgroundColor }}">
+  <div class="container">
+    {% if block.heading %}
+      <header>
+        <h2>{{ block.heading }}</h2> 
+      </header>
+    {% endif %}
+    {% if block.body %}
+      {{ block.body }}
+    {% endif %}
+    {{ include('include/_form.twig')}}
+  </div>
+</section>

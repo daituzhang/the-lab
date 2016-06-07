@@ -1,0 +1,25 @@
+{% set parent = craft.entries.slug(parentSlug).first %}
+{% set children = parent.getChildren() %}
+{% if children|length %}
+<h3>{{ parent.title }}</h3>
+<ul>
+{% for child in children %}
+  {% if location == 'on' %}
+    {% if child.blocks|length %}
+      <li class="location">
+        <p>{{ child.blocks[0].mapTitle }}</p>
+        {{ child.blocks[0].mapContent }}
+      </li>
+    {% endif %}
+  {% elseif parent.slug == 'program' %}
+    <li><a href="{{ child.url }}">{{ child.linkHeader}}</a></li>
+  {% else %}
+    <li><a href="{{ child.url }}"{% if child.slug == entry.slug %} class="active"{% endif %}>{{ child.title }}</a></li>
+  {% endif %}
+{% endfor %}  
+</ul>
+{% else %}
+<h3><a href="{{ parent.url }}">{{ parent.title }}</a></h3>
+{% endif %}
+
+

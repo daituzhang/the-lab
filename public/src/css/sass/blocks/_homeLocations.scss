@@ -1,0 +1,31 @@
+.home-locations {
+  color: $gray;
+  font-size: 1.8rem;
+  line-height: 1.6;
+  text-align: center;
+  h2 {
+    margin-bottom: 30px;
+  }
+  a {
+    color: inherit;
+  }
+  .home-location-contianer {
+    display: table;
+  }
+  .home-location-box {
+    display: block;
+    height: 220px;
+    background: $white;
+    border: 1px solid $gray-border;
+    margin-top: 50px;
+    transition: all .3s ease;
+    cursor: pointer;
+    &:hover {
+      box-shadow: 2px 2px 21px 2px $gray-border;
+    }
+  }
+  .box-content {
+    @include center();
+    width: 100%;
+  }
+}

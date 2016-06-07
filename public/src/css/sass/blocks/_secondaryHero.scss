@@ -1,0 +1,55 @@
+.secondary-hero {
+  color: $off-white;
+  font-size: 2.2rem;
+  h1 {
+    font-size: 8.2rem;
+    margin-bottom: 20px;
+  }
+  h3 {
+    font-size: 2.2rem;
+    color: $white;
+    margin-bottom: 20px;
+  }
+  li {
+    font-size: 1.6rem;
+    list-style: none;
+    margin-bottom: 15px;
+    a {
+      color: $gray-light;
+      text-decoration: none;
+      &.active {
+        color: $white;
+      }
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+  ul {
+    margin-bottom: 45px;
+  }
+  .side-container {
+    padding-left: 20%;
+  }
+  #gmap_canvas {
+    width: 90%;
+    height: 340px;
+    color: $gray;
+    margin-right: 0;
+    margin-top: 40px;
+    font-size: 1.4rem;
+    p {
+      line-height: 1.2;
+    }
+  }
+  .flexible {
+    margin-top: 90px;
+    padding: 25px;
+    background: rgba($black,0.7);
+  }
+  @include mobile-only {
+    .side-container {
+      padding-left: 0;
+    }
+  }
+}

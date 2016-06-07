@@ -1,0 +1,162 @@
+{#
+ # Layout template
+ # ---------------
+ #
+ # This template defines your site’s global layout. It can be
+ # “extended” by other templates to fill in the gaps.
+ #
+ # See Twig’s Template Inheritance documentation for more details:
+ # http://twig.sensiolabs.org/doc/templates.html#template-inheritance
+ #}
+{% set pages = craft.entries.section('pages') %}
+
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US">
+<head>
+	<meta charset="utf-8" />
+	<meta content="initial-scale=1, minimum-scale=1, width=device-width" name="viewport">
+  <meta http-equiv="x-ua-compatible" content="IE=edge">
+  <meta name="description" value="{% block metaDescription %}{{ seo.metaDescription }}{% endblock %}">
+
+	<title>{% if title is defined %}{{ title }} - {% endif %}{{ seo.metaTitle }}</title>
+
+	<link rel="home" href="{{ siteUrl }}" />
+  <link rel="shortcut icon" href="../favicon.ico">
+  <link rel="stylesheet" type="text/css" href="{{ craft.config.environmentVariables['frontEndAssets'] }}css/vendor/menu/normalize.css" />
+  <link rel="stylesheet" type="text/css" href="{{ craft.config.environmentVariables['frontEndAssets'] }}css/vendor/menu/icons.css" />
+  <link rel="stylesheet" type="text/css" href="{{ craft.config.environmentVariables['frontEndAssets'] }}css/vendor/menu/component.css" />
+  <link rel="stylesheet" type="text/css" href="{{ craft.config.environmentVariables['frontEndAssets'] }}css/vendor/hamburgers/hamburgers.css" />
+  <script src="{{ craft.config.environmentVariables['frontEndAssets'] }}/js/vendor/modernizr.custom.js"></script>
+	<link rel="stylesheet" href="{{ craft.config.environmentVariables['frontEndAssets'] }}css/site.css">
+	<!--[if lt IE 9]>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+  <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+	{% block head_end %}{% endblock %}
+</head>
+<body>
+	{% block body_start %}{% endblock %}
+	{% block header %}
+  <div class="mp-container">
+    <div class="mp-pusher" id="mp-pusher">
+      <nav id="mp-menu" class="mp-menu">
+        <div class="logo desktop-only">
+          {% if siteInfo.logo|length %}
+            <img src="{{siteInfo.logo|first.url}}" alt="siteInfo.logo">
+          {% endif %}
+        </div>
+        <div class="mp-level">
+          <h2><a href="/">Home</a></h2>
+          <ul>
+            {% nav page in pages %}
+            <li class="icon icon-arrow-left">
+              {{ page.getLink() }}
+              {% ifchildren %}
+                <div class="mp-level">
+                  <h2>{{ page.getTitle() }}</h2>
+                  <ul>
+                    {% children %}
+                  </ul>
+                </div>
+                {% endifchildren %}
+              </li>
+              {% endnav %}
+              {% if siteInfo.facebook %}
+              <li class="desktop-only social"><a class="ficon-facebook" href="{{ siteInfo.facebook }}"></a></li>
+              {% endif %}
+              {% if siteInfo.instagram %}
+                <li class="desktop-only social"><a class="ficon-instagram" href="{{ siteInfo.instagram }}"></a></li>
+              {% endif %}
+              {% if siteInfo.youtube %}
+                <li class="desktop-only social"><a class="ficon-youtube" href="{{ siteInfo.youtube }}"></a></li>
+              {% endif %}
+          </ul>
+        </div>
+      </nav>
+
+      <div class="scroller"><!-- this is for emulating position fixed of the nav -->
+        <div class="scroller-inner">
+          <a href="#" id="trigger" class="hamburger hamburger--collapse menu-trigger">
+            <span class="hamburger-box">
+              <span class="hamburger-inner"></span>
+            </span>
+          </a>
+        	{% endblock %}
+        	{% block content %}{% endblock %}
+        	{% block footer %}
+          <footer>
+            <div class="container">
+              <div class="grid">
+                <div class="col col-1-of-3 col--m-1-of-2 desktop-tablet-only">
+                  <div class="col col-1-of-2 col--m-1-of-2">
+                    <div class="footer-container">
+                      {{ include('include/_getChildren.twig', {parentSlug: 'about-us', location:'off'}) }}
+                      {{ include('include/_getChildren.twig', {parentSlug: 'locations', location:'off'}) }}
+                      {{ include('include/_getChildren.twig', {parentSlug: 'contact-us', location:'off'}) }}
+                      <ul>
+                        {% if siteInfo.facebook %}
+                        <li class="social"><a class="ficon-facebook" href="{{ siteInfo.facebook }}"></a></li>
+                        {% endif %}
+                        {% if siteInfo.instagram %}
+                          <li class="social"><a class="ficon-instagram" href="{{ siteInfo.instagram }}"></a></li>
+                        {% endif %}
+                        {% if siteInfo.youtube %}
+                          <li class="social"><a class="ficon-youtube" href="{{ siteInfo.youtube }}"></a></li>
+                        {% endif %}
+                      </ul>
+                    </div>
+                  </div>
+                  <div class="col col-1-of-2 col--m-1-of-2">
+                    <div class="footer-container">
+                      {{ include('include/_getChildren.twig', {parentSlug: 'programs', location:'off'}) }}
+                    </div>
+                  </div>
+                </div>
+                <div class="col col-3-of-12 col--m-1-of-2 desktop-tablet-only">
+                  <div class="footer-container">
+                    {{ include('include/_getChildren.twig', {parentSlug: 'locations', location:'on'}) }}
+                  </div>
+                </div>
+                <div class="col col-5-of-12">
+                  <div class="footer-container form-container">
+                    <h3>Access Our Specials</h3>
+                    {{ include('include/_form.twig')}}
+                  </div>
+                </div>
+              </div>
+              <div class="mobile-only text-center mobile-container">
+                <ul>
+                  {% if siteInfo.facebook %}
+                  <li class="social"><a class="ficon-facebook" href="{{ siteInfo.facebook }}"></a></li>
+                  {% endif %}
+                  {% if siteInfo.instagram %}
+                    <li class="social"><a class="ficon-instagram" href="{{ siteInfo.instagram }}"></a></li>
+                  {% endif %}
+                  {% if siteInfo.youtube %}
+                    <li class="social"><a class="ficon-youtube" href="{{ siteInfo.youtube }}"></a></li>
+                  {% endif %}
+                </ul>
+                <p>© 2016 Freddie Poole’s Martial Arts. All Rights Resevered.</p>
+              </div>
+            </div>
+          </footer>
+        </div>
+      </div>
+    </div>
+  </div>
+  {% endblock %}
+	{% block scripts_start %}{% endblock %}
+    <!--  libraries downloaded from cdn -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+  <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
+  <!--  end: libraries downloaded from cdn -->
+	<script src="{{ craft.config.environmentVariables['frontEndAssets'] }}js/vendor.js"></script>
+    <script src="{{ craft.config.environmentVariables['frontEndAssets'] }}js/vendor/classie.js"></script>
+    <script src="{{ craft.config.environmentVariables['frontEndAssets'] }}js/vendor/mlpushmenu.js"></script>
+    <script>
+      new mlPushMenu( document.getElementById( 'mp-menu' ), document.getElementById( 'trigger' ) );
+    </script>
+  <script src="{{ craft.config.environmentVariables['frontEndAssets'] }}js/main.js"></script>
+</body>
+</html>
