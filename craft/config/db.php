@@ -8,14 +8,14 @@ return array(
         'server' => 'localhost',
         'user' => 'root',
         'password' => '',
-        'database' => 'fpma',
+        'database' => 'the-lab',
     ),
     // Treat *.vagrantshare.com the same as localhost
     'vagrantshare.com' => array(
         'server' => 'localhost',
         'user' => 'root',
         'password' => '',
-        'database' => 'fpma',
+        'database' => 'the-lab',
     ),
     'staging' => array(
         'server' => 'localhost',
@@ -27,6 +27,6 @@ return array(
         'server' => 'localhost',
         'user' => 'root',
         'password' => 'Key+1010fr',
-        'database' => 'fpma',
+        'database' => 'the-lab',
     )
 );
