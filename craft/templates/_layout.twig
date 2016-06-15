@@ -49,28 +49,9 @@
         <div class="mp-level">
           <h2><a href="/">Home</a></h2>
           <ul>
-            {% nav page in pages %}
             <li class="icon icon-arrow-left">
-              {{ page.getLink() }}
-              {% ifchildren %}
-                <div class="mp-level">
-                  <h2>{{ page.getTitle() }}</h2>
-                  <ul>
-                    {% children %}
-                  </ul>
-                </div>
-                {% endifchildren %}
-              </li>
-              {% endnav %}
-              {% if siteInfo.facebook %}
-              <li class="desktop-only social"><a class="ficon-facebook" href="{{ siteInfo.facebook }}"></a></li>
-              {% endif %}
-              {% if siteInfo.instagram %}
-                <li class="desktop-only social"><a class="ficon-instagram" href="{{ siteInfo.instagram }}"></a></li>
-              {% endif %}
-              {% if siteInfo.youtube %}
-                <li class="desktop-only social"><a class="ficon-youtube" href="{{ siteInfo.youtube }}"></a></li>
-              {% endif %}
+              
+            </li>
           </ul>
         </div>
       </nav>
