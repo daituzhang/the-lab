@@ -1,5 +1,30 @@
 {% extends "_layout" %}
 
 {% block content %}
-{% include "partials/_pages" %}
+  <section id="about">
+    <h1>{{entry.aboutHeader}}</h1>
+    {{entry.aboutBody}}
+  </section>
+  <section id="our-booth">
+    <h1>{{entry.ourBoothTopHeader}}</h1>
+    {{entry.ourBoothTopBody}}
+    {% set parent = entry.ourBoothDropdowns %}
+    {% include 'include/_getChildren.twig' %}
+  </section>
+  <section id="our-booth-middle">
+    {{entry.ourBoothMiddleBody}}
+  </section>
+  <section id="our-booth-bottom">
+    <h2>{{entry.ourBoothBottomHeader}}</h2>
+    {{entry.ourBoothBottomBody}}
+    {% set parent = entry.ourBoothDropdowns %}
+    {% include 'include/_getChildren.twig' %}
+  </section>
+  <section id="package">
+    <h2>{{ entry.packageHeader }}</h2>
+    {% set parent = entry.packageDropdowns %}
+    {% include 'include/_getChildren.twig' %}
+  </section>
+
+
 {% endblock %}

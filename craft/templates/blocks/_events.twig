@@ -8,18 +8,12 @@
     {% if block.body %}
       {{ block.body }}
     {% endif %}
-    {% if block.location %}
-      
-      
-    {% endif %}
-    
-    {{ block.location }}
-
   </div>
 </section>
 {# CUSTOM CALENDAR OUTPUT #}
 <section class='calendar' style="width:90%;">
     {# We are passing the Month and Years as url params #}
+    {% set location = block.location %}
     {% set currentMonth = craft.request.getParam('m') ? craft.request.getParam('m') : "now"|date('n') %}
     {% set currentYear = craft.request.getParam('y') ? craft.request.getParam('y') : "now"|date('Y') %}
     {# Setting a string as current year-month-day #}
@@ -39,7 +33,7 @@
     </div>
     <div class="calendar-block">
         {# Get the events for the calendar #}
-        {% set events = craft.venti.allEvents().startDate('and', '>= ' ~ prevMonth, '<= ' ~ nextMonth).find() %}
+        {% set events = craft.venti.allEvents().startDate('and', '>= ' ~ prevMonth, '<= ' ~ nextMonth).location(location).find().order('startDate DESC') %}
         {# Setting the parameters for the Twig Calendar helper #}
         {% set prm = {
             "events": events,

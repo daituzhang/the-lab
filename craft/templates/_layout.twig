@@ -64,7 +64,8 @@
             </span>
           </a>
         	{% endblock %}
-        	{% block content %}{% endblock %}
+        	{% block content %}
+          {% endblock %}
         	{% block footer %}
           <footer>
             <div class="container">
@@ -72,9 +73,7 @@
                 <div class="col col-1-of-3 col--m-1-of-2 desktop-tablet-only">
                   <div class="col col-1-of-2 col--m-1-of-2">
                     <div class="footer-container">
-                      {{ include('include/_getChildren.twig', {parentSlug: 'about-us', location:'off'}) }}
-                      {{ include('include/_getChildren.twig', {parentSlug: 'locations', location:'off'}) }}
-                      {{ include('include/_getChildren.twig', {parentSlug: 'contact-us', location:'off'}) }}
+
                       <ul>
                         {% if siteInfo.facebook %}
                         <li class="social"><a class="ficon-facebook" href="{{ siteInfo.facebook }}"></a></li>
@@ -82,28 +81,24 @@
                         {% if siteInfo.instagram %}
                           <li class="social"><a class="ficon-instagram" href="{{ siteInfo.instagram }}"></a></li>
                         {% endif %}
-                        {% if siteInfo.youtube %}
-                          <li class="social"><a class="ficon-youtube" href="{{ siteInfo.youtube }}"></a></li>
-                        {% endif %}
+
                       </ul>
                     </div>
                   </div>
                   <div class="col col-1-of-2 col--m-1-of-2">
                     <div class="footer-container">
-                      {{ include('include/_getChildren.twig', {parentSlug: 'programs', location:'off'}) }}
                     </div>
                   </div>
                 </div>
                 <div class="col col-3-of-12 col--m-1-of-2 desktop-tablet-only">
                   <div class="footer-container">
-                    {{ include('include/_getChildren.twig', {parentSlug: 'locations', location:'on'}) }}
                   </div>
                 </div>
                 <div class="col col-5-of-12">
                   <div class="footer-container form-container">
                     <h3>Access Our Specials</h3>
-                    {{ include('include/_form.twig')}}
-                  </div>
+{#                     {{ include('include/_form.twig')}}
+ #}                  </div>
                 </div>
               </div>
               <div class="mobile-only text-center mobile-container">
@@ -114,8 +109,11 @@
                   {% if siteInfo.instagram %}
                     <li class="social"><a class="ficon-instagram" href="{{ siteInfo.instagram }}"></a></li>
                   {% endif %}
-                  {% if siteInfo.youtube %}
-                    <li class="social"><a class="ficon-youtube" href="{{ siteInfo.youtube }}"></a></li>
+                  {% if siteInfo.twitter %}
+                    <li class="social"><a class="ficon-twitter" href="{{ siteInfo.twitter }}"></a></li>
+                  {% endif %}
+                  {% if siteInfo.pinterest %}
+                    <li class="social"><a class="ficon-pinterest" href="{{ siteInfo.pinterest }}"></a></li>
                   {% endif %}
                 </ul>
                 <p>© 2016 Freddie Poole’s Martial Arts. All Rights Resevered.</p>
