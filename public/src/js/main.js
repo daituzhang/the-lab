@@ -1,67 +1,108 @@
-function initMap() {
-  geocoder = new google.maps.Geocoder();
-  var gmapCanvas = document.getElementById("gmap_canvas");
-    var geocoder;
-    var map;
-    var mapTitle = gmapCanvas.getAttribute("data-title");
-    var mapAddress = gmapCanvas.getAttribute("data-address");
-    var mapContent = gmapCanvas.getAttribute("data-content");
-    var div = document.createElement("div");
-    div.innerHTML = mapContent;
-  var latlng = new google.maps.LatLng(-34.397, 150.644);
-  var myOptions = {
-    zoom: 14,
-    center: latlng,
-    mapTypeControl: true,
-    mapTypeControlOptions: {
-      style: google.maps.MapTypeControlStyle.DROPDOWN_MENU
-    },
-    navigationControl: true,
-    mapTypeId: google.maps.MapTypeId.ROADMAP
-  };
-  map = new google.maps.Map(document.getElementById("gmap_canvas"), myOptions);
-  if (geocoder) {
-    geocoder.geocode({
-      'address': mapAddress
-    }, function(results, status) {
-      if (status == google.maps.GeocoderStatus.OK) {
-        if (status != google.maps.GeocoderStatus.ZERO_RESULTS) {
-          map.setCenter(results[0].geometry.location);
 
-          var infowindow = new google.maps.InfoWindow({
-            content: '<b>'+mapTitle+'</b><br>'+mapContent,
-            size: new google.maps.Size(180, 50)
-          });
+(function($){
+  $.fn.parallax = function(options){
+   
+    return this.each(function(){
+       var $$ = $(this);
 
-          var marker = new google.maps.Marker({
-            position: results[0].geometry.location,
-            map: map,
-            title: mapAddress
-          });
-          infowindow.open(map, marker);
-          google.maps.event.addListener(marker, 'click', function() {
-            infowindow.open(map, marker);
-          });
+    offset = $$.offset();
+    console.log(offset);
+    var defaults = {
+      'start': offset.top,
+      'stop': offset.top + $$.height(),
+      'coeff': 0.95
+    };
+    var opts = $.extend(defaults, options);
+      $('.scroller').bind('scroll', function() {
+        windowTop = $('.scroller').scrollTop();
+                console.log(windowTop);
+        windowBottom = windowTop + $('.scroller').height();
 
-        } else {
-          alert("No results found");
+        if((windowBottom >= opts.start) && (windowTop <= opts.stop)) {
+          newCoord = windowTop * opts.coeff;
+          $$.css({
+              'background-position': '0 '+ newCoord + 'px'
+          });
         }
-      } else {
-        alert("Geocode was not successful for the following reason: " + status);
-      }
+      });
     });
-  }
-}
+  };
+})(jQuery);
 
-function setSubject() {
-    $('select[name="location"]').change(function(){
-        var location = $(this).val();
-        $('input[name="subjectLine"]').val( 'New Contact For ' + location);
-    });
+function slides(){
+  var len = $('.slide').length;
+  var lock = 0;
+  function slideLeft() {
+    lock = 1;
+    var current = $('.slide.active').index() - 1;
+    var next = current == 0 ? len - 1 : current - 1;
+    $('.slide.active').addClass('right-out');
+    $('.slide').eq(next).addClass('active left-in');
+    setTimeout(function(){
+      lock = 0;
+      $('.slide.right-out').removeClass('right-out active');
+      $('.slide.left-in').removeClass('left-in');
+    }, 1000);
+  }
+  function slideRight() {
+    lock = 1;
+    var current = $('.slide.active').index() - 1;
+    var next = current == len - 1 ? 0 : current + 1;
+    $('.slide.active').addClass('left-out');
+    $('.slide').eq(next).addClass('active right-in');
+    setTimeout(function(){
+      lock = 0;
+      console.log('inset');
+      $('.slide.left-out').removeClass('left-out active');
+      $('.slide.right-in').removeClass('right-in');
+    }, 1000);
+    console.log('inright',lock);
+  }
+  var slideLoop = setInterval(function() {
+    slideRight();
+  }, 5000);
+  $('.arrow.arrow-left').click(function(e){
+    clearInterval(slideLoop);
+    if(!lock){
+      slideLeft();
+    }
+  });
+  $('.arrow.arrow-right').click(function(e){
+    console.log(lock);
+    if(!lock){
+      clearInterval(slideLoop);
+      slideRight();
+    }
+  });
 }
 $(document).ready(function() {
-    setSubject();
-    if($('#gmap_canvas').length ) {
-       google.maps.event.addDomListener(window, 'load', initMap); 
-    }
+  // $('.scroller').bind('scroll', function() {
+  //    windowTop = $('.scroller').scrollTop();
+  //   $('.parallax').each(function(){
+  //     var $$ = $(this);
+  //     console.log($$);
+  //     offset = $$.offset();
+  //     console.log(offset);
+  //     var defaults = {
+  //       'start': offset.top,
+  //       'stop': offset.top + $$.height(),
+  //       'coeff': 0.95
+  //     };
+  //     opts = defaults;
+  //     if((windowTop >= opts.start) && (windowTop <= opts.stop)) {
+  //       newCoord = windowTop * opts.coeff;
+  //       $$.css({
+  //           'background-position': '0 '+ newCoord + 'px'
+  //       });
+
+  //     }
+  //   });
+  // });
+    $('.parallax').parallax({ 'coeff':-0.35 });
+    $('.parallax .inner').parallax({ 'coeff':1.15 });
+    $('.dropdown').click(function(e){
+      $(this).toggleClass('open');
+    })
+    slides();
 });
+

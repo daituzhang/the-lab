@@ -8,7 +8,13 @@ return array(
         'server' => 'localhost',
         'user' => 'root',
         'password' => '',
-        'database' => 'the-lab',
+        'database' => 'the_lab',
+    ),
+    '192.168.99.100' => array(
+        'server' => 'localhost',
+        'user' => 'root',
+        'password' => '',
+        'database' => 'the_lab',
     ),
     // Treat *.vagrantshare.com the same as localhost
     'vagrantshare.com' => array(

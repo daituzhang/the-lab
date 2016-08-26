@@ -18,6 +18,8 @@ $gray:                   #777;
 $gray-border:            #d5d5d5; // #d4d4d4
 $gray-super-light: 			 lighten(#000, 93%); // #ededed
 
+
+$gold:					#c0bd31;
 $brand-primary:         #ED1C24;
 $brand-success:         #00a651;
 $brand-info:            #3b73b0;
@@ -40,3 +42,5 @@ $tablet: $breakpoint-medium;
 
 $mobile-device: $breakpoint-small;
 $tablet-device: $breakpoint-medium;
+
+$section-height: 657px;

@@ -1,6 +1,9 @@
 @import url(https://fonts.googleapis.com/css?family=Roboto:400,400italic,300italic,300,500,500italic,700,700italic);
 
+html {
+	text-transform: uppercase;
 
+}
 h1 {
   font-weight: 300;
   font-size: 10rem;
@@ -15,4 +18,13 @@ h2 {
 
 p {
   line-height: 1.8;
+}
+.text-white {
+	color: $white;
+}
+.text-black {
+	color: $black;
+}
+.text-gold {
+	color: $gold;
 }

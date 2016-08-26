@@ -15,14 +15,24 @@ return array(
         )
     ),
 
-    // Treat *.vagrantshare.com the same as localhost
-    'vagrantshare' => array(
+    'localhost' => array(
         'devMode' => true,
         'environmentVariables' => array(
             'env' => 'dev',
             'fileSystemPath' => '/vagrant/public/',
             'frontEndAssets' => '/src/',
             'siteName' => 'fpma',
+        )
+    ),
+
+    // Treat *.vagrantshare.com the same as localhost
+    '192.168.99.100' => array(
+        'devMode' => true,
+        'environmentVariables' => array(
+            'env' => 'dev',
+            'fileSystemPath' => '/var/www/the-lab/public/',
+            'frontEndAssets' => '/src/',
+            'siteName' => 'the-lab',
         )
     ),
 

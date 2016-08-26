@@ -15,6 +15,7 @@
 @import "components/tables";
 @import "components/forms";
 @import "components/calendar";
+@import "components/slides";
 
 
 // Modules are larger sections and they contain components.
@@ -31,6 +32,21 @@
 @import "blocks/homeLocations";
 @import "blocks/twoColumns";
 @import "blocks/contact";
+
+//font-awesome
+@import "font-awesome/variables";
+@import "font-awesome/mixins";
+@import "font-awesome/path";
+@import "font-awesome/core";
+@import "font-awesome/larger";
+@import "font-awesome/fixed-width";
+@import "font-awesome/list";
+@import "font-awesome/bordered-pulled";
+@import "font-awesome/animated";
+@import "font-awesome/rotated-flipped";
+@import "font-awesome/stacked";
+@import "font-awesome/icons";
+@import "font-awesome/screen-reader";
 
 // WHERE ARE MY BREAKPOINTS???
 //
