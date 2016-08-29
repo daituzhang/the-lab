@@ -1,11 +1,7 @@
-#form-contact {
-  .field {
-    &:last-child {
-      display: none;
-    }
-  }
-}
 form {
+  .triangle:after {
+    @include triangle(12,$white,16);
+  }
   fieldset {
     padding: 0;
     margin: 0;
@@ -17,35 +13,30 @@ form {
     }
   }
   input,select {
-    height: 60px;
-    padding: 20px;
-    color: #aaa;
-    border: 1px solid #e5e5e5;
+    text-transform: uppercase;
+    padding: 10px 20px;
+    color: $gold;
+    border: 2px solid $gold;
     width: 100%;
-    box-shadow: 1px 1px 2px -2px $black inset;
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    background-color: transparent;
+
     @include placeholder {
       font-size: 1.5rem;
-      font-weight: 300;
-      font-style: italic;
+      font-weight: 500;
+      color: $gold;
     }
   }
   input {
-    margin-bottom: 18px;
+    margin-bottom: 15px;
   }
   $select-arrow: 'data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/PjxzdmcgaGVpZ2h0PSI0OCIgdmlld0JveD0iMCAwIDQ4IDQ4IiB3aWR0aD0iNDgiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggZD0iTTE0LjgzIDE2LjQybDkuMTcgOS4xNyA5LjE3LTkuMTcgMi44MyAyLjgzLTEyIDEyLTEyLTEyeiIvPjxwYXRoIGQ9Ik0wLS43NWg0OHY0OGgtNDh6IiBmaWxsPSJub25lIi8+PC9zdmc+';
 
   select {
-    height: 60px;
     border-radius: 0;
     -webkit-appearance: none; // autoprefixer won't add this and we still need it
     appearance: none;
     cursor: pointer;
-    padding: 20px;
-    width: 100%;
-    font-size: 1.5rem;
-    font-weight: 300;
-    margin-bottom: 30px;
-    font-style: italic;
-    background-color: $white;
   }
 }

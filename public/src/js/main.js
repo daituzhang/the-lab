@@ -28,6 +28,27 @@
     });
   };
 })(jQuery);
+function parallax(){ 
+  $('.scroller').bind('scroll', function() {
+    windowTop = $('.scroller').scrollTop();
+    windowBottom = windowTop + $('.scroller').height();
+    $('.parallax').each(function(){
+      var $$ = $(this);
+      offset = $$.position();
+      var opts = {
+        'start': offset.top,
+        'stop': offset.top + $$.height(),
+        'coeff': -0.25
+      };
+      if((windowBottom >= opts.start) && (windowTop <= opts.stop)) {
+        newCoord = (opts.stop - windowTop) * opts.coeff;
+        $$.css({
+            'background-position': '0 '+ newCoord + 'px'
+        });
+      }
+    });
+  });
+}
 
 function slides(){
   var len = $('.slide').length;
@@ -52,57 +73,34 @@ function slides(){
     $('.slide').eq(next).addClass('active right-in');
     setTimeout(function(){
       lock = 0;
-      console.log('inset');
       $('.slide.left-out').removeClass('left-out active');
       $('.slide.right-in').removeClass('right-in');
     }, 1000);
-    console.log('inright',lock);
   }
-  var slideLoop = setInterval(function() {
-    slideRight();
-  }, 5000);
+  // var slideLoop = setInterval(function() {
+  //   slideRight();
+  // }, 5000);
   $('.arrow.arrow-left').click(function(e){
-    clearInterval(slideLoop);
+    //clearInterval(slideLoop);
     if(!lock){
       slideLeft();
     }
   });
   $('.arrow.arrow-right').click(function(e){
-    console.log(lock);
     if(!lock){
-      clearInterval(slideLoop);
+      //clearInterval(slideLoop);
       slideRight();
     }
   });
 }
 $(document).ready(function() {
-  // $('.scroller').bind('scroll', function() {
-  //    windowTop = $('.scroller').scrollTop();
-  //   $('.parallax').each(function(){
-  //     var $$ = $(this);
-  //     console.log($$);
-  //     offset = $$.offset();
-  //     console.log(offset);
-  //     var defaults = {
-  //       'start': offset.top,
-  //       'stop': offset.top + $$.height(),
-  //       'coeff': 0.95
-  //     };
-  //     opts = defaults;
-  //     if((windowTop >= opts.start) && (windowTop <= opts.stop)) {
-  //       newCoord = windowTop * opts.coeff;
-  //       $$.css({
-  //           'background-position': '0 '+ newCoord + 'px'
-  //       });
-
-  //     }
-  //   });
-  // });
-    $('.parallax').parallax({ 'coeff':-0.35 });
-    $('.parallax .inner').parallax({ 'coeff':1.15 });
+    //$('.parallax').parallax({ 'coeff':-0.15 });
+    //$('.parallax .inner').parallax({ 'coeff':1.05 });
     $('.dropdown').click(function(e){
       $(this).toggleClass('open');
     })
     slides();
+    parallax();
+    $( ".datepicker" ).datepicker();
 });
 

@@ -2,7 +2,7 @@
 
 
 {% block content %}
-  {% set backgroundImage = entry.aboutBackgroundImage|length == 0 ? "" : " background: url(" ~  entry.aboutBackgroundImage|first.url ~ ") no-repeat; #000" %}
+  {% set backgroundImage = entry.aboutBackgroundImage|length == 0 ? "" : " background: url(" ~  entry.aboutBackgroundImage|first.url ~ ") no-repeat #000; background-size: cover;" %}
   <section class="text-white parallax" id="about" style="{{ backgroundImage }}">
     <div class="inner">
       <h1>{{entry.aboutHeader}}</h1>
@@ -15,7 +15,7 @@
     {% set parent = entry.ourBoothDropdowns %}
     {% include 'include/_getChildren.twig' %}
   </section>
-  {% set backgroundImage = entry.ourBoothMiddleBackgroundImage|length == 0 ? "" : " background: url(" ~  entry.ourBoothMiddleBackgroundImage|first.url ~ ") no-repeat; #000" %}
+  {% set backgroundImage = entry.ourBoothMiddleBackgroundImage|length == 0 ? "" : " background: url(" ~  entry.ourBoothMiddleBackgroundImage|first.url ~ ") no-repeat #000; background-size: cover;" %}
   <section id="our-booth-middle" class="text-white parallax" style="{{ backgroundImage }}">
     <div class="inner">
       <h1>{{entry.ourBoothMiddleHeader}}</h1>
@@ -24,7 +24,7 @@
   </section>
   <section id="our-booth-slide">
    <div class="slides-container">
-        <span class="arrow arrow-left fa fa-chevron-left text-white"></span>
+        <span class="arrow arrow-left  icon-left-open-big text-white"></span>
         {% for slide in entry.ourBoothSlides %}
           {% set backgroundImage = slide.backgroundImage|length == 0 ? "" : " background: url(" ~  slide.backgroundImage|first.url ~ ") no-repeat; background-size: cover; " %}
           <div class="slide{% if loop.first  %} active{% endif %} {{slide.classes}}" style="{{ backgroundImage }}">
@@ -32,17 +32,26 @@
             {{ slide.body }}
           </div>
         {% endfor %}
-        <span class="arrow arrow-right fa fa-chevron-right text-white"></span>
+        <span class="arrow arrow-right icon-right-open-big text-white"></span>
       </div>
   </section>
-  <section id="our-booth-bottom">
+  {% set backgroundImage = entry.ourBoothBottomBackgroundImage|length == 0 ? "" : " background: url(" ~  entry.ourBoothBottomBackgroundImage|first.url ~ ") no-repeat #000; background-size: cover;" %}
+  <section id="our-booth-bottom" class="parallax text-gold" style="{{ backgroundImage }}">
     <h2>{{entry.ourBoothBottomHeader}}</h2>
     {{entry.ourBoothBottomBody}}
   </section>
-  <section id="package">
+  {% set backgroundColor = entry.packageBackgroundColor == '' ? "" : " background-color: " ~  entry.packageBackgroundColor ~ ";" %}
+  <section id="package" class="text-black" style="{{backgroundColor}}">
     <h2>{{ entry.packageHeader }}</h2>
+    {{ entry.packageBody }}
     {% set parent = entry.packageDropdowns %}
     {% include 'include/_getChildren.twig' %}
+  </section>
+  {% set backgroundColor = entry.contactBackgroundColor == '' ? "" : " background-color: " ~  entry.contactBackgroundColor ~ ";" %}
+  <section id="contact" class="text-white" style="{{backgroundColor}}">
+    <h1>{{ entry.contactHeader }}</h1>
+    {{ entry.contactBody}}
+    {% include 'include/_form.twig' %}
   </section>
 
 

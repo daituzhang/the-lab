@@ -10,15 +10,70 @@
   {{ getCsrfInput() }}
   
   {# Fields #}
-  {% for tab in tabs %}
-    {% set fields = tab.getFields() %}
-    <fieldset class="{{ tab.name |lower|replace(' ', '-') }}">
-      {% for field in fields %}
-        {% set input = craft.formBuilder2.getInputHtml(field) %}
-        {{ input |raw }}
-      {% endfor %} 
-    </fieldset>
-  {% endfor %}
+  <div class="triangle">
+    <select name="event-type">
+      <option value="" disabled selected>Event Type</option>
+      <option value="saab">Saab</option>
+      <option value="opel">Opel</option>
+      <option value="audi">Audi</option>
+    </select>
+  </div>
+  <div class="grid">
+    <div class="col col-1-of-2">
+      <input type="text" name="first-name" placeholder="First Name">
+    </div>
+    <div class="col col-1-of-2">
+      <input type="text" name="last-name" placeholder="Last Name">
+    </div>
+  </div>
+  <div class="grid">
+    <div class="col col-1-of-3">
+      <input type="tel" name="phone-number" placeholder="Phone Number">
+    </div>
+    <div class="col col-2-of-3">
+      <input type="email" name="email" placeholder="Email">
+    </div>
+  </div>
+  <div class="grid">
+    <div class="col col-1-of-3 triangle">
+      <input type="text" name="event-date" placeholder="Event Date" class="datepicker" >
+    </div>
+    <div class="col col-1-of-3 triangle">
+      <select name="event-start-time">
+        <option value="" disabled selected>Event Start Time</option>
+        {% include 'include/_time.twig' %}
+      </select>
+    </div>
+    <div class="col col-1-of-3 triangle">
+      <select name="event-end-time">
+        <option value="" disabled selected>Event End Time</option>
+        {% include 'include/_time.twig' %}
+      </select>
+    </div>
+  </div>
+  <div class="grid">
+    <div class="col col-1-of-2">
+      <input type="text" name="event-name" placeholder="Event Name">
+    </div>
+    <div class="col col-1-of-2">
+      <input type="text" name="event-location" placeholder="Event Location">
+    </div>
+  </div>
+  <div class="grid">
+    <div class="col col-1-of-2 triangle">
+      <select name="how-did-you-hear-about-us">
+        <option value="" disabled selected>How Did You Hear about Us</option>
+        <option value=""></option>
+      </select>      
+    </div>
+    <div class="col col-1-of-2 triangle">
+      <select name="experience-package">
+        <option value="" disabled selected>Experience Package</option>
+        <option value=""></option>
+      </select>  
+    </div>
+  </div>
+
 
   {# Errors/Success Messages #}
   <div class="notifications">
@@ -34,5 +89,5 @@
     {% endif %}
   </div>
 
-  <button type="submit" class="btn btn-submit">Submit Form</button>
+  <button type="submit" class="btn btn-submit">Send Message</button>
 </form>

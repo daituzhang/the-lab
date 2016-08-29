@@ -46,18 +46,6 @@ section {
     color: $white;
     font-size: 1.5rem;
     cursor: pointer;
-    &:after {
-      content: "";
-      width: 0; 
-      height: 0; 
-      border-left: 7px solid transparent;
-      border-right: 7px solid transparent;
-      border-top: 7px solid $black;
-      position: absolute;
-      right: 12px;
-      top: 12px;
-      transition: all 1s ease;
-    }
   }
   &.open {
     .dropdown-inner {
@@ -72,7 +60,30 @@ section {
 section#our-booth-slide {
   padding: 0;
 }
-
+section#package {
+  ul {
+    list-style: none;
+  }
+  .dropdown {
+    &.open {
+      .dropdown-inner {
+        max-height: 400px;
+      }
+      h4:after {
+        border-top: 7px solid $gold;
+      }
+    }
+  }
+  .dropdown-body {
+    color: $black;
+  }
+  h4{
+    background-color: $black;
+    &:after {
+      border-top: 7px solid $white;
+    }
+  }
+}
 
 html, 
 body, 
@@ -139,6 +150,11 @@ hr {
 .tablet-mobile-only {
   @include desktop-only {
     display: none !important;
+  }
+}
+.triangle {
+  &:after {
+    @include triangle(7,$black,12);
   }
 }
 

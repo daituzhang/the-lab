@@ -35,7 +35,7 @@ Create an Asset field and add it to your form. You need to select **Has File Upl
 
 # Email Notifications
 
-Set up your forms to send email notifications to any emails you like. Email notifications can be customized a little. You can choose between plain text or an HTML email template. For each option you can add an optional body and footer text. If you going with HTML template you can upload a custom logo, pick background color and add container width.
+Templates have been added. Now you can visually set up email notification templates for admins or submitter. Currently with limited customization options but with feedback I'm sure we will add more. Check out this [video](https://www.youtube.com/watch?v=sRFgX_gQL5Y) for quick overlook. 
 
 ***
 
@@ -92,15 +92,43 @@ Here's a list of currently supported fields. Unlike FormBuilder there are no mor
 
 If you want to have custom markup for your rendered fields follow these steps to achieve it.
 
-* Create a directory `custom/inputs` inside plugins `templates` folder. 
-* Go to `templates/inputs` and copy over any available fieldtypes over to your custom folder and update markup.
+* While editing your form go to the `Fields` tab. 
+* Click the settings icon next your field and hit `Custom Template` option.
+* Enter your template path located in `craft/templates`.
+* Example: enter `forms/text`, place `text.html` or `text.twig` into `craft/templates/forms/`
 
+
+***
+
+# Custom Redirects
+
+You can pass submission data to a custom redirect page, here is a snipped code for getting started.
+
+```
+
+{% set submissionId = craft.request.getCookie('formBuilder2SubmissionId') %}
+{% set submission = null %}
+{% if submissionId %}
+  {% set submission = craft.formBuilder2.getFormEntryById(submissionId.value) %}
+{% endif %}
+
+{% if submission %}
+  {{ submission.form |inspect }}
+  {{ submission.data |inspect }}
+{% endif %}
+
+```
+* First we are getting a submission ID by checking cookies for it.
+* If we get an ID we call a function to get the submission
+* When and if you get a submission back you can use `submission.form` to get form information and `submission.data` to get submission information
+  * `submission.form.id` - Form ID
+  * `submission.form.title` - Form Name
+  * `submission.data` - Holds submission data...so if your form had a field with handle name `yourEmail` you can call `submission.data.yourEmail` to get your string.
 
 ***
 
 ## Todo
 
-* Add more custom mark up options (like allow users to add any field by usind field handle)
 * Exporting entries
 * Update documentations
 * Visual data reporting
@@ -110,14 +138,7 @@ If you want to have custom markup for your rendered fields follow these steps to
 
 ## Changelog
 
-* 3.25.16 - Added ability to get custom subject line from form submission
-* 2.26.16 - Added option to notify submitter
-* 2.5.16 - Merged pull request, fixed required checkox not passing if only one checkbox [#30](https://github.com/roundhouse/FormBuilder-2-Craft-CMS/pull/30)
-* 1.21.16 - If you have files and email notifications turned on, you will now get file attachments to your email.
-* 1.14.16 - Fixed Dropdown FieldType from not submitting data. Fixed undefined error when adding Forms field to matrix.
-* 1.13.16 - added getFormById($id) functionality, if you need to render form on frontend based on form id use getFormHtmlById($id) instead
-* 1.8.16 - Updated plugin version number
-* 1.7.16 - Fix templates path, so that it reverts to original templates path after the plugin is run. (pull request [#13](https://github.com/roundhouse/FormBuilder-2-Craft-CMS/pull/13))
+Refer to [releases.json](https://github.com/roundhouse/FormBuilder-2-Craft-CMS/blob/master/releases.json) for updates.
 
 
 

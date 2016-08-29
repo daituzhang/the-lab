@@ -23,6 +23,7 @@
 
 	<link rel="home" href="{{ siteUrl }}" />
   <link rel="shortcut icon" href="../favicon.ico">
+  <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
   <link rel="stylesheet" type="text/css" href="{{ craft.config.environmentVariables['frontEndAssets'] }}css/vendor/menu/normalize.css" />
   <link rel="stylesheet" type="text/css" href="{{ craft.config.environmentVariables['frontEndAssets'] }}css/vendor/menu/icons.css" />
   <link rel="stylesheet" type="text/css" href="{{ craft.config.environmentVariables['frontEndAssets'] }}css/vendor/menu/component.css" />
@@ -128,6 +129,8 @@
 	{% block scripts_start %}{% endblock %}
     <!--  libraries downloaded from cdn -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+
   <!--  end: libraries downloaded from cdn -->
 	<script src="{{ craft.config.environmentVariables['frontEndAssets'] }}js/vendor.js"></script>
     <script src="{{ craft.config.environmentVariables['frontEndAssets'] }}js/vendor/classie.js"></script>

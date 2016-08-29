@@ -1,23 +1,35 @@
-@import url(https://fonts.googleapis.com/css?family=Roboto:400,400italic,300italic,300,500,500italic,700,700italic);
+@import url("//hello.myfonts.net/count/314665");
 
+  
+@font-face {font-family: 'Novecentosanswide-Bold';src: url('../fonts/314665_0_0.eot');src: url('../fonts/314665_0_0.eot?#iefix') format('embedded-opentype'),url('../fonts/314665_0_0.woff2') format('woff2'),url('../fonts/314665_0_0.woff') format('woff'),url('../fonts/314665_0_0.ttf') format('truetype');}
+ 
+  
+@font-face {font-family: 'Novecentosanswide-Light';src: url('../fonts/314665_1_0.eot');src: url('../fonts/314665_1_0.eot?#iefix') format('embedded-opentype'),url('../fonts/314665_1_0.woff2') format('woff2'),url('../fonts/314665_1_0.woff') format('woff'),url('../fonts/314665_1_0.ttf') format('truetype');}
+ 
+  
+@font-face {font-family: 'Novecentosanswide-Normal';src: url('../fonts/314665_2_0.eot');src: url('../fonts/314665_2_0.eot?#iefix') format('embedded-opentype'),url('../fonts/314665_2_0.woff2') format('woff2'),url('../fonts/314665_2_0.woff') format('woff'),url('../fonts/314665_2_0.ttf') format('truetype');}
 html {
 	text-transform: uppercase;
+  font: 1.5rem 'Novecentosanswide-Light',arial, sans-serif;
+  font-weight: 100;
 
 }
 h1 {
-  font-weight: 300;
-  font-size: 10rem;
+  font-size: 5rem;
   line-height: 1;
+  font-family: 'Novecentosanswide-Light';
 }
 
 h2 {
   font-weight: 300;
   font-size: 3.6rem;
   line-height: 1;
+  font-family: 'Novecentosanswide-Light';
 }
 
 p {
   line-height: 1.8;
+  font-family: 'Novecentosanswide-Light';
 }
 .text-white {
 	color: $white;

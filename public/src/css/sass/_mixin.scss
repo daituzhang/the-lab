@@ -26,6 +26,19 @@
   transform: translate3d(0, -50%, 0);
 }
 
+@mixin triangle($size,$color,$top) {
+  content: "";
+  width: 0; 
+  height: 0; 
+  border-left: $size + px solid transparent;
+  border-right: $size + px solid transparent;
+  border-top: $size + px solid $color;
+  position: absolute;
+  right: 12px;
+  top: $top + px;
+  transition: all 1s ease;
+}
+
 @mixin scrollbars($size, $foreground-color, $background-color: mix($foreground-color, white, 50%)) {
   ::-webkit-scrollbar {
       width:  $size;
