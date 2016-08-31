@@ -1,10 +1,10 @@
 footer {
-  font-size: 1.2rem;
-  padding: 0 120px;
-  color: $gray;
+  font-size: 0.9rem;
+  padding: 0 120px 108px;
+  color: $gold;
   line-height: 22px;
   @include tablet-mobile {
-    padding: 0;
+    padding: 0 5% 30px;
   }
   .container {
     margin: 0 auto;
@@ -30,10 +30,14 @@ footer {
       }
     }
     &.social {
-      font-size: 18px;
+      font-size: 3.2rem;
       display: inline-block;
-      width: 20px;
-      margin-right: 10px;
+      padding: 0 5px;
+      color: $gray;
+      transition: all .5s ease;
+      &:hover {
+        color: $gold;
+      }
     }
   }
   h3 {

@@ -1,11 +1,5 @@
 html {
-  font-size: 10px;
-  font-family: 'roboto', Arial, serif;
-  font-weight: 300;
-}
-body {
-  font-size: 1.6rem;
-  background-color: $white;
+  background-color: $black;
 }
 section {
   padding: 130px 170px;
@@ -13,6 +7,10 @@ section {
   min-height: $section-height;
   &.parallax {
     height: $section-height;
+    @include mobile-only {
+      background-position: 50% 50% !important;
+      height: auto;
+    }
   }
   * {
     position: relative;
@@ -20,9 +18,6 @@ section {
   .container {
     margin: 0 auto;
     max-width: 1024px;
-  }
-  &:not(:first-of-type) {
-    border-bottom: 1px solid $gray-border;
   }
   @include tablet-mobile {
     padding: 50px 5%;
@@ -52,8 +47,24 @@ section {
       max-height: 200px;
     }
     h4:after {
-      border-top: 7px solid $white;
-      transform: rotate(-180deg);
+      @include desktop-tablet {
+        border-top: 7px solid $white;
+        transform: rotate(-180deg);
+      }
+      @include mobile-only {
+        transform: translate3d(0, -50%, 0) rotate(90deg);
+        right: 5%;
+      }
+    }
+  }
+  @include mobile-only {
+    margin: 5px -5vw;
+    h4 {
+      padding: 45px;
+      font-size: 2.6rem;
+      text-align: left;
+      font-family: 'Novecentosanswide-normal';
+      letter-spacing: 2px;
     }
   } 
 }
@@ -70,7 +81,9 @@ section#package {
         max-height: 400px;
       }
       h4:after {
-        border-top: 7px solid $gold;
+        @include desktop-tablet {
+          border-top: 7px solid $gold;
+        }
       }
     }
   }
@@ -80,7 +93,9 @@ section#package {
   h4{
     background-color: $black;
     &:after {
-      border-top: 7px solid $white;
+      @include desktop-tablet {
+        border-top: 7px solid $white;
+      }
     }
   }
 }
@@ -120,6 +135,26 @@ section#hero {
   
 }
 
+.belt {
+  position: absolute;
+  z-index: 2;
+  width: 100%;
+  overflow-x: hidden;
+  img {
+    height: 128px;
+    max-width: none;
+    left: -30px;
+  }
+}
+.belt-up {
+  top: 0;
+  left: 0;
+}
+.belt-bottom {
+  bottom: -100px;
+  left: 0;
+}
+
 html, 
 body, 
 .scroller {
@@ -128,6 +163,9 @@ body,
 
 .scroller {
   overflow-y: scroll;
+  @include desktop-only {
+    margin-top: 134px;
+  }
 }
 
 .scroller,
@@ -189,7 +227,11 @@ hr {
 }
 .triangle {
   &:after {
-    @include triangle(7,$black,12);
+    @include triangle-down(7,$black,12);
+    @include mobile-only {
+      @include triangle-right(25,$white,0);
+      @include center-y;
+    }
   }
 }
 

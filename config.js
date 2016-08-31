@@ -1,5 +1,5 @@
 module.exports = {
-  domain: 'localhost:2200',
+  domain: 'localhost:8080',
   webpack: require('./webpack.config'),
   paths: {
     input: {

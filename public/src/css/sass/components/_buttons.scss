@@ -11,6 +11,9 @@
   margin: 0 auto;
   transition: all .5s ease;
  
+  @include mobile-only {
+    width: 100%;
+  }
   &.btn-submit {
     background-color: $gold;
     color: $black; 

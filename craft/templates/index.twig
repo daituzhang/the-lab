@@ -6,7 +6,7 @@
     <div class="icon-icons_logo_veritcal hero-logo"></div>
     <div class="hero-back"></div>
     <div class="hero-play icon-play-circled"></div>
-    <video class="hero-video" width="320" height="240" controls>
+    <video class="hero-video" controls>
       <source src="src/video/TheLab_Short_Video_Homepage_op2.mp4" type="video/mp4">
     </video>
   </section>
@@ -50,6 +50,14 @@
   </section>
   {% set backgroundColor = entry.packageBackgroundColor == '' ? "" : " background-color: " ~  entry.packageBackgroundColor ~ ";" %}
   <section id="package" class="text-black" style="{{backgroundColor}}">
+    {% if entry.packageBelt|length %}
+      <div class="belt belt-up">
+        <img src="{{ entry.packageBelt|first.url}} " alt="{{ entry.packageBelt|first}}">
+      </div>
+      <div class="belt belt-bottom">
+        <img src="{{ entry.packageBelt|first.url}} " alt="{{ entry.packageBelt|first}}">
+      </div>
+    {% endif %}
     <h2>{{ entry.packageHeader }}</h2>
     {{ entry.packageBody }}
     {% set parent = entry.packageDropdowns %}

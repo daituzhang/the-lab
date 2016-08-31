@@ -24,9 +24,6 @@
 	<link rel="home" href="{{ siteUrl }}" />
   <link rel="shortcut icon" href="../favicon.ico">
   <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
-  <link rel="stylesheet" type="text/css" href="{{ craft.config.environmentVariables['frontEndAssets'] }}css/vendor/menu/normalize.css" />
-  <link rel="stylesheet" type="text/css" href="{{ craft.config.environmentVariables['frontEndAssets'] }}css/vendor/menu/icons.css" />
-  <link rel="stylesheet" type="text/css" href="{{ craft.config.environmentVariables['frontEndAssets'] }}css/vendor/menu/component.css" />
   <link rel="stylesheet" type="text/css" href="{{ craft.config.environmentVariables['frontEndAssets'] }}css/vendor/hamburgers/hamburgers.css" />
   <script src="{{ craft.config.environmentVariables['frontEndAssets'] }}/js/vendor/modernizr.custom.js"></script>
 	<link rel="stylesheet" href="{{ craft.config.environmentVariables['frontEndAssets'] }}css/site.css">
@@ -39,92 +36,57 @@
 <body>
 	{% block body_start %}{% endblock %}
 	{% block header %}
-  <div class="mp-container">
-    <div class="mp-pusher" id="mp-pusher">
-      <nav id="mp-menu" class="mp-menu">
-        <div class="logo desktop-only">
-          {% if siteInfo.logo|length %}
-            <img src="{{siteInfo.logo|first.url}}" alt="siteInfo.logo">
-          {% endif %}
-        </div>
-        <div class="mp-level">
-          <h2><a href="/">Home</a></h2>
-          <ul>
-            <li class="icon icon-arrow-left">
-              
-            </li>
-          </ul>
-        </div>
-      </nav>
-
-      <div class="scroller"><!-- this is for emulating position fixed of the nav -->
-        <div class="scroller-inner">
-          <a href="#" id="trigger" class="hamburger hamburger--collapse menu-trigger">
-            <span class="hamburger-box">
-              <span class="hamburger-inner"></span>
-            </span>
-          </a>
-        	{% endblock %}
-        	{% block content %}
-          {% endblock %}
-        	{% block footer %}
-          <footer>
-            <div class="container">
-              <div class="grid">
-                <div class="col col-1-of-3 col--m-1-of-2 desktop-tablet-only">
-                  <div class="col col-1-of-2 col--m-1-of-2">
-                    <div class="footer-container">
-
-                      <ul>
-                        {% if siteInfo.facebook %}
-                        <li class="social"><a class="ficon-facebook" href="{{ siteInfo.facebook }}"></a></li>
-                        {% endif %}
-                        {% if siteInfo.instagram %}
-                          <li class="social"><a class="ficon-instagram" href="{{ siteInfo.instagram }}"></a></li>
-                        {% endif %}
-
-                      </ul>
-                    </div>
-                  </div>
-                  <div class="col col-1-of-2 col--m-1-of-2">
-                    <div class="footer-container">
-                    </div>
-                  </div>
-                </div>
-                <div class="col col-3-of-12 col--m-1-of-2 desktop-tablet-only">
-                  <div class="footer-container">
-                  </div>
-                </div>
-                <div class="col col-5-of-12">
-                  <div class="footer-container form-container">
-                    <h3>Access Our Specials</h3>
-{#                     {{ include('include/_form.twig')}}
- #}                  </div>
-                </div>
-              </div>
-              <div class="mobile-only text-center mobile-container">
-                <ul>
-                  {% if siteInfo.facebook %}
-                  <li class="social"><a class="ficon-facebook" href="{{ siteInfo.facebook }}"></a></li>
-                  {% endif %}
-                  {% if siteInfo.instagram %}
-                    <li class="social"><a class="ficon-instagram" href="{{ siteInfo.instagram }}"></a></li>
-                  {% endif %}
-                  {% if siteInfo.twitter %}
-                    <li class="social"><a class="ficon-twitter" href="{{ siteInfo.twitter }}"></a></li>
-                  {% endif %}
-                  {% if siteInfo.pinterest %}
-                    <li class="social"><a class="ficon-pinterest" href="{{ siteInfo.pinterest }}"></a></li>
-                  {% endif %}
-                </ul>
-                <p>© 2016 Freddie Poole’s Martial Arts. All Rights Resevered.</p>
-              </div>
-            </div>
-          </footer>
-        </div>
+  <nav id="mp-menu" class="mp-menu text-gold">
+    <div class="mp-level">
+      <div class="mobile-top text-white">
+        <a href="#hero"><span class="mobile-logo icon-icons_logo_horizontal"></span></a>
+        <a href="#" id="trigger" class="hamburger hamburger--collapse menu-trigger">
+          <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+          </span>
+        </a>
       </div>
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#our-booth">Our Booth</a></li>
+        <li><a href="#package">Packages</a></li>
+        <li class="desktop-only text-white nav-logo"><a href="#hero"><span class="icon-icons_logo_horizontal"></span></a></li>
+        <li><a href="#about">Galleries</a></li>
+        <li><a href="#about">FAQ</a></li>
+        <li><a href="#package">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="scroller"><!-- this is for emulating position fixed of the nav -->
+    <div class="scroller-inner">
+    	{% endblock %}
+    	{% block content %}
+      {% endblock %}
+    	{% block footer %}
+      <footer>
+        <div class="container text-center">
+          <ul>
+            {% if siteInfo.facebook %}
+            <li class="social"><a class="icon-icons_footer_fb" href="{{ siteInfo.facebook }}"></a></li>
+            {% endif %}
+            {% if siteInfo.instagram %}
+              <li class="social"><a class="icon-icons_footer_insta" href="{{ siteInfo.instagram }}"></a></li>
+            {% endif %}
+            {% if siteInfo.twitter %}
+              <li class="social"><a class="icon-icons_footer_twitter" href="{{ siteInfo.twitter }}"></a></li>
+            {% endif %}
+            {% if siteInfo.pinterest %}
+              <li class="social"><a class="icon-icons_footer_pinterest" href="{{ siteInfo.pinterest }}"></a></li>
+            {% endif %}
+          </ul>
+          <p>info@eventsbythelab.com  |  <a href="tel:2149454593">214.945.4593</a><br>
+        welcome | close up | come on in | experience packages | FAQ</p>
+        </div>
+      </footer>
     </div>
   </div>
+
   {% endblock %}
 	{% block scripts_start %}{% endblock %}
     <!--  libraries downloaded from cdn -->
@@ -134,10 +96,6 @@
   <!--  end: libraries downloaded from cdn -->
 	<script src="{{ craft.config.environmentVariables['frontEndAssets'] }}js/vendor.js"></script>
     <script src="{{ craft.config.environmentVariables['frontEndAssets'] }}js/vendor/classie.js"></script>
-    <script src="{{ craft.config.environmentVariables['frontEndAssets'] }}js/vendor/mlpushmenu.js"></script>
-    <script>
-      new mlPushMenu( document.getElementById( 'mp-menu' ), document.getElementById( 'trigger' ) );
-    </script>
   <script src="{{ craft.config.environmentVariables['frontEndAssets'] }}js/main.js"></script>
 </body>
 </html>

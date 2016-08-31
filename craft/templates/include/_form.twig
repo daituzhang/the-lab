@@ -10,7 +10,7 @@
   {{ getCsrfInput() }}
   
   {# Fields #}
-  <div class="triangle">
+  <div class="triangle desktop-tablet-only">
     <select name="event-type">
       <option value="" disabled selected>Event Type</option>
       <option value="saab">Saab</option>
@@ -18,7 +18,8 @@
       <option value="audi">Audi</option>
     </select>
   </div>
-  <div class="grid">
+  <input type="text" name="name" class="mobile-only" placeholder="Name">
+  <div class="grid desktop-tablet-only">
     <div class="col col-1-of-2">
       <input type="text" name="first-name" placeholder="First Name">
     </div>
@@ -28,30 +29,31 @@
   </div>
   <div class="grid">
     <div class="col col-1-of-3">
-      <input type="tel" name="phone-number" placeholder="Phone Number">
+      <input type="tel" name="phone-number" placeholder="Phone Number" required>
     </div>
     <div class="col col-2-of-3">
-      <input type="email" name="email" placeholder="Email">
+      <input type="email" name="email" placeholder="Email" required>
     </div>
   </div>
   <div class="grid">
     <div class="col col-1-of-3 triangle">
-      <input type="text" name="event-date" placeholder="Event Date" class="datepicker" >
+      <input type="text" name="event-date" placeholder="Event Date" class="datepicker" required>
     </div>
-    <div class="col col-1-of-3 triangle">
+    <div class="col col-1-of-3 triangle desktop-tablet-only">
       <select name="event-start-time">
         <option value="" disabled selected>Event Start Time</option>
         {% include 'include/_time.twig' %}
       </select>
     </div>
-    <div class="col col-1-of-3 triangle">
+    <div class="col col-1-of-3 triangle desktop-tablet-only">
       <select name="event-end-time">
         <option value="" disabled selected>Event End Time</option>
         {% include 'include/_time.twig' %}
       </select>
     </div>
   </div>
-  <div class="grid">
+  <textarea class="mobile-only" rows="4" name="message" placeholder="Message"></textarea>
+  <div class="grid desktop-tablet-only">
     <div class="col col-1-of-2">
       <input type="text" name="event-name" placeholder="Event Name">
     </div>
@@ -61,12 +63,12 @@
   </div>
   <div class="grid">
     <div class="col col-1-of-2 triangle">
-      <select name="how-did-you-hear-about-us">
-        <option value="" disabled selected>How Did You Hear about Us</option>
+      <select name="how-did-you-find-us">
+        <option value="" disabled selected>How Did You Find Us</option>
         <option value=""></option>
       </select>      
     </div>
-    <div class="col col-1-of-2 triangle">
+    <div class="col col-1-of-2 triangle desktop-tablet-only">
       <select name="experience-package">
         <option value="" disabled selected>Experience Package</option>
         <option value=""></option>

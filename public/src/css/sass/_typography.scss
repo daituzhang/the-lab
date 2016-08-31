@@ -10,9 +10,15 @@
 @font-face {font-family: 'Novecentosanswide-Normal';src: url('../fonts/314665_2_0.eot');src: url('../fonts/314665_2_0.eot?#iefix') format('embedded-opentype'),url('../fonts/314665_2_0.woff2') format('woff2'),url('../fonts/314665_2_0.woff') format('woff'),url('../fonts/314665_2_0.ttf') format('truetype');}
 html {
 	text-transform: uppercase;
-  font: 1.5rem 'Novecentosanswide-Light',arial, sans-serif;
   font-weight: 100;
+  font: 10px 'Novecentosanswide-Light',arial, sans-serif;
 
+}
+body {
+  font-size: 1.5rem;
+  @include mobile-only {
+    font-size: 2rem;
+  }
 }
 h1 {
   font-size: 5rem;

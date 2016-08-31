@@ -1,6 +1,9 @@
 form {
   .triangle:after {
-    @include triangle(12,$white,16);
+    @include triangle-down(12,$white,16);
+    @include mobile-only {
+      content: none;
+    }
   }
   fieldset {
     padding: 0;
@@ -12,7 +15,7 @@ form {
       display: none;
     }
   }
-  input,select {
+  input,select,textarea {
     text-transform: uppercase;
     padding: 10px 20px;
     color: $gold;
@@ -23,9 +26,12 @@ form {
     background-color: transparent;
 
     @include placeholder {
-      font-size: 1.5rem;
+      font-size: inherit;
       font-weight: 500;
       color: $gold;
+    }
+    @include mobile-only {
+      font-size: 2rem;
     }
   }
   input {
