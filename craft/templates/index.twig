@@ -2,6 +2,14 @@
 
 
 {% block content %}
+  <section id="hero">
+    <div class="icon-icons_logo_veritcal hero-logo"></div>
+    <div class="hero-back"></div>
+    <div class="hero-play icon-play-circled"></div>
+    <video class="hero-video" width="320" height="240" controls>
+      <source src="src/video/TheLab_Short_Video_Homepage_op2.mp4" type="video/mp4">
+    </video>
+  </section>
   {% set backgroundImage = entry.aboutBackgroundImage|length == 0 ? "" : " background: url(" ~  entry.aboutBackgroundImage|first.url ~ ") no-repeat #000; background-size: cover;" %}
   <section class="text-white parallax" id="about" style="{{ backgroundImage }}">
     <div class="inner">

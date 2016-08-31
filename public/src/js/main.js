@@ -98,7 +98,11 @@ $(document).ready(function() {
     //$('.parallax .inner').parallax({ 'coeff':1.05 });
     $('.dropdown').click(function(e){
       $(this).toggleClass('open');
-    })
+    });
+    $('.hero-play').click(function(e){
+      $('.hero-video').addClass('start');
+      $('.hero-video').get(0).play();
+    });
     slides();
     parallax();
     $( ".datepicker" ).datepicker();
