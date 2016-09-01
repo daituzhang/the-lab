@@ -18,6 +18,15 @@
       right: 100px;
     }
   }
+  .index {
+    @include center-x;
+    bottom: 15px;
+    color: $white;
+    z-index: 2;
+    span {
+      transition: all .5s ease;
+    }
+  }
   .slide {
     background-size: cover !important;
     background-position: 50% 50% !important;

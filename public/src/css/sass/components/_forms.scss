@@ -1,4 +1,5 @@
 form {
+  letter-spacing: 0;
   .triangle:after {
     @include triangle-down(12,$white,16);
     @include mobile-only {
@@ -17,6 +18,7 @@ form {
   }
   input,select,textarea {
     text-transform: uppercase;
+    letter-spacing: 2px;
     padding: 10px 20px;
     color: $gold;
     border: 2px solid $gold;
@@ -44,5 +46,8 @@ form {
     -webkit-appearance: none; // autoprefixer won't add this and we still need it
     appearance: none;
     cursor: pointer;
+  }
+  .col {
+    overflow: hidden;
   }
 }

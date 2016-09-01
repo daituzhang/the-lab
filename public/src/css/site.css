@@ -31,7 +31,8 @@ html {
   font: 10px 'Novecentosanswide-Light',arial, sans-serif; }
 
 body {
-  font-size: 1.5rem; }
+  font-size: 1.5rem;
+  letter-spacing: 2px; }
   @media only screen and (max-width: 760px) and (min-device-width: 1025px) {
     body {
       font-size: 2rem; } }
@@ -42,17 +43,23 @@ body {
 h1 {
   font-size: 5rem;
   line-height: 1;
-  font-family: 'Novecentosanswide-Light'; }
+  font-family: 'Novecentosanswide-Light';
+  margin-bottom: 38px; }
 
 h2 {
   font-weight: 300;
   font-size: 3.6rem;
   line-height: 1;
-  font-family: 'Novecentosanswide-Light'; }
+  font-family: 'Novecentosanswide-Light';
+  margin-bottom: 35px; }
+
+a {
+  color: inherit; }
 
 p {
   line-height: 1.8;
-  font-family: 'Novecentosanswide-Light'; }
+  font-family: 'Novecentosanswide-Light';
+  margin-bottom: 35px; }
 
 .text-white {
   color: #FFF; }
@@ -508,74 +515,74 @@ p {
       background-color: transparent;
       color: #c0bd31; }
 
-form .triangle:after {
-  content: "";
-  width: 0;
-  height: 0;
-  border-left: 12px solid transparent;
-  border-right: 12px solid transparent;
-  border-top: 12px solid #FFF;
-  position: absolute;
-  right: 12px;
-  top: 16px;
-  -webkit-transition: all 1s ease;
-  transition: all 1s ease; }
-  @media only screen and (max-width: 760px) and (min-device-width: 1025px) {
-    form .triangle:after {
-      content: none; } }
-  @media only screen and (max-device-width: 760px) {
-    form .triangle:after {
-      content: none; } }
-
-form fieldset {
-  padding: 0;
-  margin: 0;
-  border: 0; }
-
-form .field .heading {
-  display: none; }
-
-form input, form select, form textarea {
-  text-transform: uppercase;
-  padding: 10px 20px;
-  color: #c0bd31;
-  border: 2px solid #c0bd31;
-  width: 100%;
-  font-size: 1.5rem;
-  margin-bottom: 15px;
-  background-color: transparent; }
-  form input::-webkit-input-placeholder, form select::-webkit-input-placeholder, form textarea::-webkit-input-placeholder {
-    font-size: inherit;
-    font-weight: 500;
-    color: #c0bd31; }
-  form input:-moz-placeholder, form select:-moz-placeholder, form textarea:-moz-placeholder {
-    font-size: inherit;
-    font-weight: 500;
-    color: #c0bd31; }
-  form input::-moz-placeholder, form select::-moz-placeholder, form textarea::-moz-placeholder {
-    font-size: inherit;
-    font-weight: 500;
-    color: #c0bd31; }
-  form input:-ms-input-placeholder, form select:-ms-input-placeholder, form textarea:-ms-input-placeholder {
-    font-size: inherit;
-    font-weight: 500;
-    color: #c0bd31; }
-  @media only screen and (max-width: 760px) and (min-device-width: 1025px) {
-    form input, form select, form textarea {
-      font-size: 2rem; } }
-  @media only screen and (max-device-width: 760px) {
-    form input, form select, form textarea {
-      font-size: 2rem; } }
-
-form input {
-  margin-bottom: 15px; }
-
-form select {
-  border-radius: 0;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  cursor: pointer; }
+form {
+  letter-spacing: 0; }
+  form .triangle:after {
+    content: "";
+    width: 0;
+    height: 0;
+    border-left: 12px solid transparent;
+    border-right: 12px solid transparent;
+    border-top: 12px solid #FFF;
+    position: absolute;
+    right: 12px;
+    top: 16px;
+    -webkit-transition: all 1s ease;
+    transition: all 1s ease; }
+    @media only screen and (max-width: 760px) and (min-device-width: 1025px) {
+      form .triangle:after {
+        content: none; } }
+    @media only screen and (max-device-width: 760px) {
+      form .triangle:after {
+        content: none; } }
+  form fieldset {
+    padding: 0;
+    margin: 0;
+    border: 0; }
+  form .field .heading {
+    display: none; }
+  form input, form select, form textarea {
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    padding: 10px 20px;
+    color: #c0bd31;
+    border: 2px solid #c0bd31;
+    width: 100%;
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    background-color: transparent; }
+    form input::-webkit-input-placeholder, form select::-webkit-input-placeholder, form textarea::-webkit-input-placeholder {
+      font-size: inherit;
+      font-weight: 500;
+      color: #c0bd31; }
+    form input:-moz-placeholder, form select:-moz-placeholder, form textarea:-moz-placeholder {
+      font-size: inherit;
+      font-weight: 500;
+      color: #c0bd31; }
+    form input::-moz-placeholder, form select::-moz-placeholder, form textarea::-moz-placeholder {
+      font-size: inherit;
+      font-weight: 500;
+      color: #c0bd31; }
+    form input:-ms-input-placeholder, form select:-ms-input-placeholder, form textarea:-ms-input-placeholder {
+      font-size: inherit;
+      font-weight: 500;
+      color: #c0bd31; }
+    @media only screen and (max-width: 760px) and (min-device-width: 1025px) {
+      form input, form select, form textarea {
+        font-size: 2rem; } }
+    @media only screen and (max-device-width: 760px) {
+      form input, form select, form textarea {
+        font-size: 2rem; } }
+  form input {
+    margin-bottom: 15px; }
+  form select {
+    border-radius: 0;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    cursor: pointer; }
+  form .col {
+    overflow: hidden; }
 
 .calendar-block table {
   border-collapse: collapse;
@@ -801,6 +808,20 @@ form select {
       left: 100px; }
     .slides-container .arrow.arrow-right {
       right: 100px; }
+  .slides-container .index {
+    left: 50%;
+    position: absolute;
+    -webkit-transform: translate(-50%, 0);
+    -ms-transform: translate(-50%, 0);
+    transform: translate(-50%, 0);
+    -webkit-transform: translate3d(-50%, 0, 0);
+    transform: translate3d(-50%, 0, 0);
+    bottom: 15px;
+    color: #FFF;
+    z-index: 2; }
+    .slides-container .index span {
+      -webkit-transition: all .5s ease;
+      transition: all .5s ease; }
   .slides-container .slide {
     background-size: cover !important;
     background-position: 50% 50% !important;

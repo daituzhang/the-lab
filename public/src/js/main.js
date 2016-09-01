@@ -68,12 +68,17 @@ function parallax(){
 function slides(){
   var len = $('.slide').length;
   var lock = 0;
+  function setIndex(current, next) {
+    $('.index span').eq(current).removeClass('icon-icons_navigation_circle_closed').addClass('icon-icons_navigation_circle_open');
+    $('.index span').eq(next).removeClass('icon-icons_navigation_circle_open').addClass('icon-icons_navigation_circle_closed')
+  }
   function slideLeft() {
     lock = 1;
     var current = $('.slide.active').index() - 1;
     var next = current == 0 ? len - 1 : current - 1;
     $('.slide.active').addClass('right-out');
     $('.slide').eq(next).addClass('active left-in');
+    setIndex(current, next);
     setTimeout(function(){
       lock = 0;
       $('.slide.right-out').removeClass('right-out active');
@@ -86,6 +91,7 @@ function slides(){
     var next = current == len - 1 ? 0 : current + 1;
     $('.slide.active').addClass('left-out');
     $('.slide').eq(next).addClass('active right-in');
+    setIndex(current, next);
     setTimeout(function(){
       lock = 0;
       $('.slide.left-out').removeClass('left-out active');

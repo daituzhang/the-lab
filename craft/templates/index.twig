@@ -15,13 +15,16 @@
     <div class="inner">
       <h1>{{entry.aboutHeader}}</h1>
       {{entry.aboutBody}}
+      {% include 'include/_contactButton.twig' %}
     </div>   
   </section>
-  <section id="our-booth">
+  {% set backgroundColor = entry.ourBoothTopBackgroundColor == '' ? "" : " background-color: " ~  entry.ourBoothTopBackgroundColor ~ ";" %}
+  <section id="our-booth" style="{{backgroundColor}}">
     <h1>{{entry.ourBoothTopHeader}}</h1>
     {{entry.ourBoothTopBody}}
     {% set parent = entry.ourBoothDropdowns %}
     {% include 'include/_getChildren.twig' %}
+    {% include 'include/_contactButton.twig' %}
   </section>
   {% set backgroundImage = entry.ourBoothMiddleBackgroundImage|length == 0 ? "" : " background: url(" ~  entry.ourBoothMiddleBackgroundImage|first.url ~ ") no-repeat #000; background-size: cover;" %}
   <section id="our-booth-middle" class="text-white parallax" style="{{ backgroundImage }}">
@@ -38,15 +41,22 @@
           <div class="slide{% if loop.first  %} active{% endif %} {{slide.classes}}" style="{{ backgroundImage }}">
             <h2>{{ slide.title }}</h2>
             {{ slide.body }}
+            {% include 'include/_contactButton.twig' %}
           </div>
         {% endfor %}
         <span class="arrow arrow-right icon-right-open-big text-white"></span>
+        <div class="index">
+          {% for slide in entry.ourBoothSlides %}
+            <span class="{% if loop.first  %}icon-icons_navigation_circle_closed{% else %}icon-icons_navigation_circle_open{% endif %}"></span>
+          {% endfor %}
+        </div>
       </div>
   </section>
   {% set backgroundImage = entry.ourBoothBottomBackgroundImage|length == 0 ? "" : " background: url(" ~  entry.ourBoothBottomBackgroundImage|first.url ~ ") no-repeat #000; background-size: cover;" %}
   <section id="our-booth-bottom" class="parallax text-gold" style="{{ backgroundImage }}">
     <h2>{{entry.ourBoothBottomHeader}}</h2>
     {{entry.ourBoothBottomBody}}
+    {% include 'include/_contactButton.twig' %}
   </section>
   {% set backgroundColor = entry.packageBackgroundColor == '' ? "" : " background-color: " ~  entry.packageBackgroundColor ~ ";" %}
   <section id="package" class="text-black" style="{{backgroundColor}}">
