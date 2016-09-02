@@ -13,7 +13,7 @@
       'coeff': 0.95
     };
     var opts = $.extend(defaults, options);
-      $('.scroller').bind('scroll', function() {
+      $('').bind('scroll', function() {
         windowTop = $('.scroller').scrollTop();
                 console.log(windowTop);
         windowBottom = windowTop + $('.scroller').height();
@@ -34,7 +34,8 @@ function parallax(){
       'start': $$.offset().top,
       'stop': $$.offset().top + $$.height(),
     };
-    if(( opts.start <= scroll.height) && (opts.stop >= 0)) {
+    console.log(opts);
+    if(( opts.start <= scroll.bottom) && (opts.stop >= scroll.top)) {
       if(mode == 'back') {
         newCoord = (opts.stop) * -0.25;
         $$.css({
@@ -49,11 +50,12 @@ function parallax(){
       }
     }
   }
-  $('.scroller').bind('scroll', function() {
+  $(window).bind('scroll', function() {
+    console.log('scroll');
     var scroll = { 
-      top : $('.scroller').scrollTop(),
-      height : $('.scroller').height(),
-      bottom: $('.scroller').scrollTop() + $('.scroller').height()
+      top : $(window).scrollTop(),
+      height : $(window).height(),
+      bottom: $(window).scrollTop() + $(window).height()
 
     }
     $('.parallax').each(function(){
@@ -117,6 +119,18 @@ function slides(){
 $(document).ready(function() {
     //$('.parallax').parallax({ 'coeff':-0.15 });
     //$('.parallax .inner').parallax({ 'coeff':1.05 });
+    $('a[href*="#"]:not([href="#"])').click(function() {
+      if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+        var target = $(this.hash);
+        target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+        if (target.length) {
+          $('html,body').animate({
+            scrollTop: target.offset().top - $('#mp-menu').height()
+          }, 1000);
+          return false;
+        }
+      }
+    });
     $('.dropdown').click(function(e){
       $(this).toggleClass('open');
     });

@@ -25,7 +25,7 @@ section {
 }
 .dropdown {
   font-size: 1.5rem;
-  margin: 5px 0;
+  margin: 7px 0;
   .dropdown-inner {
     max-height: 0;
     overflow: hidden;
@@ -37,7 +37,7 @@ section {
   }
   h4 {
     background: $gold;
-    padding: 7px;
+    padding: 7px 20px;
     color: $white;
     font-size: 1.5rem;
     cursor: pointer;
@@ -45,6 +45,9 @@ section {
   &.open {
     .dropdown-inner {
       max-height: 200px;
+      @include mobile-only {
+        max-height: 600px;
+      }
     }
     h4:after {
       @include desktop-tablet {
@@ -97,6 +100,24 @@ section#package {
         border-top: 7px solid $white;
       }
     }
+  }
+}
+section#faq {
+  padding-top: 0;
+  padding-bottom: 90px;
+  min-height: 0;
+  h4{
+    color: $black;
+    text-align: left;
+    font-family: 'Novecentosanswide-bold';
+  }
+  .dropdown.open {
+    .dropdown-inner {
+      max-height: 600px;
+    }
+  }
+  .dropdown-body {
+    color: $white;
   }
 }
 
@@ -162,7 +183,7 @@ body,
 }
 
 .scroller {
-  overflow-y: scroll;
+ // overflow-y: scroll;
   @include desktop-only {
     margin-top: 134px;
   }

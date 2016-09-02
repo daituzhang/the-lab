@@ -35,7 +35,6 @@
 </head>
 <body>
 	{% block body_start %}{% endblock %}
-	{% block header %}
   <nav id="mp-menu" class="mp-menu text-gold">
     <div class="mp-level">
       <div class="mobile-top text-white">
@@ -47,20 +46,21 @@
         </a>
       </div>
       <ul>
+        {% block nav %}
         <li><a href="#about">About</a></li>
         <li><a href="#our-booth">Our Booth</a></li>
         <li><a href="#package">Packages</a></li>
         <li class="desktop-only text-white nav-logo"><a href="#hero"><span class="icon-icons_logo_horizontal"></span></a></li>
         <li><a href="#about">Galleries</a></li>
-        <li><a href="#about">FAQ</a></li>
-        <li><a href="#package">Contact</a></li>
+        <li><a href="/faq">FAQ</a></li>
+        <li><a href="#contact">Contact</a></li>
+       {% endblock %}
       </ul>
     </div>
   </nav>
 
   <div class="scroller"><!-- this is for emulating position fixed of the nav -->
     <div class="scroller-inner">
-    	{% endblock %}
     	{% block content %}
       {% endblock %}
     	{% block footer %}

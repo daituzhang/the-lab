@@ -930,12 +930,15 @@ footer {
     footer li.social {
       font-size: 3.2rem;
       display: inline-block;
-      padding: 0 5px;
-      color: #777;
-      -webkit-transition: all .5s ease;
-      transition: all .5s ease; }
-      footer li.social:hover {
-        color: #c0bd31; }
+      padding: 0 5px; }
+      footer li.social a {
+        color: #777;
+        -webkit-transition: all .5s ease;
+        transition: all .5s ease; }
+        footer li.social a:hover {
+          color: #c0bd31;
+          text-decoration: none;
+          text-transform: none; }
   footer h3 {
     font-size: 1.6rem;
     margin-bottom: 5px;
@@ -984,7 +987,7 @@ section {
 
 .dropdown {
   font-size: 1.5rem;
-  margin: 5px 0; }
+  margin: 7px 0; }
   .dropdown .dropdown-inner {
     max-height: 0;
     overflow: hidden;
@@ -995,12 +998,18 @@ section {
     padding: 35px; }
   .dropdown h4 {
     background: #c0bd31;
-    padding: 7px;
+    padding: 7px 20px;
     color: #FFF;
     font-size: 1.5rem;
     cursor: pointer; }
   .dropdown.open .dropdown-inner {
     max-height: 200px; }
+    @media only screen and (max-width: 760px) and (min-device-width: 1025px) {
+      .dropdown.open .dropdown-inner {
+        max-height: 600px; } }
+    @media only screen and (max-device-width: 760px) {
+      .dropdown.open .dropdown-inner {
+        max-height: 600px; } }
   @media only screen and (min-width: 761px) and (min-device-width: 761px) {
     .dropdown.open h4:after {
       border-top: 7px solid #FFF;
@@ -1057,6 +1066,19 @@ section#package h4 {
   @media only screen and (min-width: 761px) and (min-device-width: 761px) {
     section#package h4:after {
       border-top: 7px solid #FFF; } }
+
+section#faq {
+  padding-top: 0;
+  padding-bottom: 90px;
+  min-height: 0; }
+  section#faq h4 {
+    color: #000;
+    text-align: left;
+    font-family: 'Novecentosanswide-bold'; }
+  section#faq .dropdown.open .dropdown-inner {
+    max-height: 600px; }
+  section#faq .dropdown-body {
+    color: #FFF; }
 
 section#hero {
   background-color: #FFF;
@@ -1126,11 +1148,9 @@ body,
 .scroller {
   height: 100%; }
 
-.scroller {
-  overflow-y: scroll; }
-  @media only screen and (min-width: 1025px) and (min-device-width: 1025px) {
-    .scroller {
-      margin-top: 134px; } }
+@media only screen and (min-width: 1025px) and (min-device-width: 1025px) {
+  .scroller {
+    margin-top: 134px; } }
 
 .scroller,
 .scroller-inner {

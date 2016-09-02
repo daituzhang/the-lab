@@ -33,10 +33,14 @@ footer {
       font-size: 3.2rem;
       display: inline-block;
       padding: 0 5px;
-      color: $gray;
-      transition: all .5s ease;
-      &:hover {
-        color: $gold;
+      a {
+        color: $gray;        
+        transition: all .5s ease;
+        &:hover {
+          color: $gold;      
+          text-decoration: none;
+          text-transform: none;
+        }
       }
     }
   }

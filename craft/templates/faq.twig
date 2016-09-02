@@ -1,0 +1,19 @@
+{% extends "_layout" %}
+{% block nav %}
+  <li><a href="/#about">About</a></li>
+  <li><a href="/#our-booth">Our Booth</a></li>
+  <li><a href="/#package">Packages</a></li>
+  <li class="desktop-only text-white nav-logo"><a href="/#hero"><span class="icon-icons_logo_horizontal"></span></a></li>
+  <li><a href="/#about">Galleries</a></li>
+  <li><a href="/faq">FAQ</a></li>
+  <li><a href="/#contact">Contact</a></li>
+{% endblock %}
+
+{% block content %}
+  <section id="faq" class="text-white">
+    <h1>{{entry.header}}</h1>
+    {{entry.body}}
+    {% set parent = entry.faqDropdowns %}
+    {% include 'include/_getChildren.twig' %}
+  </section>
+{% endblock %}
