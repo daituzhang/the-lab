@@ -77,6 +77,10 @@
   </div>
 
 
+  
+
+  <button type="submit" class="btn btn-submit">Send Message</button>
+
   {# Errors/Success Messages #}
   <div class="notifications">
     <p class="notification error-message">{{ craft.session.getFlash('error') | raw }}<p>
@@ -90,6 +94,4 @@
     </ul>
     {% endif %}
   </div>
-
-  <button type="submit" class="btn btn-submit">Send Message</button>
 </form>

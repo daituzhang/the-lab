@@ -15,7 +15,6 @@
     var opts = $.extend(defaults, options);
       $('').bind('scroll', function() {
         windowTop = $('.scroller').scrollTop();
-                console.log(windowTop);
         windowBottom = windowTop + $('.scroller').height();
 
         if((windowBottom >= opts.start) && (windowTop <= opts.stop)) {
@@ -34,16 +33,16 @@ function parallax(){
       'start': $$.offset().top,
       'stop': $$.offset().top + $$.height(),
     };
-    console.log(opts);
+    //console.log(opts);
     if(( opts.start <= scroll.bottom) && (opts.stop >= scroll.top)) {
       if(mode == 'back') {
-        newCoord = (opts.stop) * -0.25;
+        newCoord = (scroll.top-opts.stop) * 0.25;
         $$.css({
           'background-position': '50% '+ newCoord + 'px'
         });
       }
       else if(mode == 'margin') {
-        newCoord = (opts.stop) * -0.1;
+        newCoord = (scroll.bottom-opts.stop) * -0.1;
         $$.css({
             'transform': 'translate(0, ' + newCoord + 'px'
         }); 
@@ -51,7 +50,6 @@ function parallax(){
     }
   }
   $(window).bind('scroll', function() {
-    console.log('scroll');
     var scroll = { 
       top : $(window).scrollTop(),
       height : $(window).height(),
@@ -113,6 +111,18 @@ function slides(){
     if(!lock){
       //clearInterval(slideLoop);
       slideRight();
+    }
+  });
+  $( "#our-booth-slide" ).on( "swipeleft", function(e){
+    if(!lock){
+      //clearInterval(slideLoop);
+      slideRight();
+    }
+  });
+  $( "#our-booth-slide" ).on( "swiperight", function(e){
+    //clearInterval(slideLoop);
+    if(!lock){
+      slideLeft();
     }
   });
 }

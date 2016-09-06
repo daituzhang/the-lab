@@ -35,7 +35,7 @@
   </section>
   <section id="our-booth-slide">
    <div class="slides-container">
-        <span class="arrow arrow-left  icon-left-open-big text-white"></span>
+        <span class="arrow desktop-tablet-only arrow-left icon-left-open-big text-white"></span>
         {% for slide in entry.ourBoothSlides %}
           {% set backgroundImage = slide.backgroundImage|length == 0 ? "" : " background: url(" ~  slide.backgroundImage|first.url ~ ") no-repeat; background-size: cover; " %}
           <div class="slide{% if loop.first  %} active{% endif %} {{slide.classes}}" style="{{ backgroundImage }}">
@@ -44,7 +44,7 @@
             {% include 'include/_contactButton.twig' %}
           </div>
         {% endfor %}
-        <span class="arrow arrow-right icon-right-open-big text-white"></span>
+        <span class="arrow desktop-tablet-only arrow-right icon-right-open-big text-white"></span>
         <div class="index">
           {% for slide in entry.ourBoothSlides %}
             <span class="{% if loop.first  %}icon-icons_navigation_circle_closed{% else %}icon-icons_navigation_circle_open{% endif %}"></span>
