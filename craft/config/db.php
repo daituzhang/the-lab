@@ -23,16 +23,10 @@ return array(
         'password' => '',
         'database' => 'the_lab',
     ),
-    '205.186.139.171' => array(
-        'server' => 'localhost',
-        'user' => 'theLab',
-        'password' => 'tiancai',
-        'database' => 'the_lab',
-    ),
     'accessdomain.com' => array(
         'server' => 'localhost',
-        'user' => 'root',
-        'password' => 'Key+1010fr',
-        'database' => 'the-lab',
+        'user' => 'the-Lab',
+        'password' => '@Z4?zDs%',
+        'database' => 'the_lab',
     )
 );

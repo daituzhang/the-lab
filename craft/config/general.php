@@ -25,7 +25,7 @@ return array(
         )
     ),
 
-    '205.186.139.171' => array(
+    'accessdomain' => array(
         'devMode' => true,
         'environmentVariables' => array(
             'env' => 'dev',
