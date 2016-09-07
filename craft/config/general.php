@@ -35,14 +35,4 @@ return array(
         )
     )
 
-    // 'z77z-ghyl.accessdomain.com' => array(
-    //     'cooldownDuration' => 0,
-
-    //     'environmentVariables' => array(
-    //         'env' => 'prod',
-    //         'fileSystemPath' => '/opt/www/public',
-    //         'frontEndAssets' => '/dist/',
-    //         'siteName' => 'fpma',
-    //     )
-    // )
 );

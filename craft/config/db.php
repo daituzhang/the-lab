@@ -25,8 +25,8 @@ return array(
     ),
     'accessdomain.com' => array(
         'server' => 'localhost',
-        'user' => 'root',
-        'password' => 'M@sean3114',
+        'user' => 'the-lab',
+        'password' => '@Z4?zDs%',
         'database' => 'the_lab',
     )
 );
