@@ -25,7 +25,7 @@ return array(
         )
     ),
 
-    'accessdomain' => array(
+    'accessdomain.com' => array(
         'devMode' => true,
         'environmentVariables' => array(
             'env' => 'dev',
