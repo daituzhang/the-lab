@@ -33,17 +33,6 @@ return array(
             'frontEndAssets' => '/src/',
             'siteName' => 'the-lab',
         )
-    ),
-
-
-    'accessdomain.com' => array(
-        'devMode' => true,
-        'environmentVariables' => array(
-            'env' => 'dev',
-            'fileSystemPath' => '/var/www/fpma/public/',
-            'frontEndAssets' => '/src/',
-            'siteName' => 'fpma',
-        )
     )
 
     // 'z77z-ghyl.accessdomain.com' => array(
