@@ -21,13 +21,13 @@ return array(
         'server' => 'localhost',
         'user' => 'root',
         'password' => '',
-        'database' => 'the-lab',
+        'database' => 'the_lab',
     ),
-    'staging' => array(
+    '205.186.139.171' => array(
         'server' => 'localhost',
-        'user' => '',
-        'password' => '',
-        'database' => '',
+        'user' => 'theLab',
+        'password' => 'tiancai',
+        'database' => 'the_lab',
     ),
     'accessdomain.com' => array(
         'server' => 'localhost',

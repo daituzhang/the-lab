@@ -15,7 +15,7 @@ return array(
         )
     ),
 
-    'localhost' => array(
+    'vagrantshare' => array(
         'devMode' => true,
         'environmentVariables' => array(
             'env' => 'dev',
@@ -25,8 +25,7 @@ return array(
         )
     ),
 
-    // Treat *.vagrantshare.com the same as localhost
-    '192.168.99.100' => array(
+    '205.186.139.171' => array(
         'devMode' => true,
         'environmentVariables' => array(
             'env' => 'dev',

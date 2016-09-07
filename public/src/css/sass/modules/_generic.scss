@@ -2,7 +2,7 @@ html {
   background-color: $black;
 }
 section {
-  padding: 130px 170px;
+  padding: 130px 260px;
   text-align: center;
   min-height: $section-height;
   &.parallax {
@@ -160,6 +160,11 @@ section#contact {
     padding: 130px 5%;
   }
 }
+
+section#our-booth {
+  overflow: hidden;
+}
+
 .belt {
   position: absolute;
   z-index: 2;
@@ -180,6 +185,39 @@ section#contact {
   left: 0;
 }
 
+.img-move {
+  position: absolute;
+  @include mobile-only {
+    transform:translate(0, 0) !important;
+  }
+}
+
+#light {
+  top: -400px;
+  left: -250px;
+  @include mobile-only {
+    width: 200px;
+    top: 200px;
+    left: -90px;
+  }
+}
+
+#photo {
+  top: 100px;
+  right: -120px;
+  @include mobile-only {
+    width: 150px;
+    top: 400px;
+    right: -90px;
+  }
+}
+
+#printer {
+  right: -400px;
+  top: 230px;
+  width: 800px;
+}
+
 html, 
 body, 
 .scroller {
@@ -188,8 +226,13 @@ body,
 
 .scroller {
  // overflow-y: scroll;
+  margin-top: 70px;
   @include desktop-only {
-    margin-top: 134px;
+    margin-top: 130px;
+    transition: all .5s ease;
+    &.nav-narrow {
+      margin-top: 64px;
+    }
   }
 }
 
