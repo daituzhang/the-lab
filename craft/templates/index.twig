@@ -2,6 +2,7 @@
 
 
 {% block content %}
+{% cache for 3 weeks %}
   <section id="hero">
     <div class="icon-icons_logo_veritcal hero-logo"></div>
     <div class="hero-back"></div>
@@ -89,6 +90,6 @@
     {{ entry.contactBody}}
     {% include 'include/_form.twig' %}
   </section>
-
+{% endcache %}
 
 {% endblock %}
