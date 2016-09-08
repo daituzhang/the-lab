@@ -47,9 +47,11 @@
         {% for slide in entry.ourBoothSlides %}
           {% set backgroundImage = slide.backgroundImage|length == 0 ? "" : " background: url(" ~  slide.backgroundImage|first.url ~ ") no-repeat; background-size: cover; " %}
           <div class="slide{% if loop.first  %} active{% endif %} {{slide.classes}}" style="{{ backgroundImage }}">
-            <h2>{{ slide.title }}</h2>
-            {{ slide.body }}
-            {% include 'include/_contactButton.twig' %}
+            {% if slide.body %}
+              <h2>{{ slide.title }}</h2>
+              {{ slide.body }}
+              {% include 'include/_contactButton.twig' %}
+            {% endif %}
           </div>
         {% endfor %}
         <span class="arrow desktop-tablet-only arrow-right icon-right-open-big text-white"></span>
