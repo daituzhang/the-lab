@@ -84,7 +84,7 @@ section#package {
   .dropdown {
     &.open {
       .dropdown-inner {
-        max-height: 400px;
+        max-height: 600px;
       }
       h4:after {
         @include desktop-tablet {
