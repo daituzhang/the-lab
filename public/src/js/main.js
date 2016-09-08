@@ -44,7 +44,7 @@ function parallax(){
     //console.log(opts);
     if(( opts.start <= scroll.bottom) && (opts.stop >= scroll.top)) {
       if(mode == 'back') {
-        newCoord = (scroll.top-opts.stop) * 0.25;
+        newCoord = (scroll.top-opts.stop + 500) * 0.1;
         $$.css({
           'background-position': '50% '+ newCoord + 'px'
         });
