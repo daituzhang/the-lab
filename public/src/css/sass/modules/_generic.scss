@@ -141,6 +141,8 @@ section#hero {
     width: auto;
     height: auto;
     background-color: white;
+    opacity: 1;
+    transition: opacity .5s ease;
   }
   .hero-back {
     background-color: rgba($black,0.5);
