@@ -167,6 +167,19 @@ function slides(){
     }
   });
 }
+
+function video(){
+  $('.hero-play').click(function(e){
+    $('.hero-video').addClass('start');
+    $('.video-close').addClass('start');
+    $('.hero-video').get(0).play();
+  });
+  $('.video-close').click(function(e){
+    $('.hero-video').removeClass('start');
+    $('.video-close').removeClass('start');
+    $('.hero-video').get(0).pause();
+  });
+}
 $(document).ready(function() {
     //$('.parallax').parallax({ 'coeff':-0.15 });
     //$('.parallax .inner').parallax({ 'coeff':1.05 });
@@ -185,15 +198,13 @@ $(document).ready(function() {
     $('.dropdown').click(function(e){
       $(this).toggleClass('open');
     });
-    $('.hero-play').click(function(e){
-      $('.hero-video').addClass('start');
-      $('.hero-video').get(0).play();
-    });
+
     $('#trigger').click(function(e){
       $(this).toggleClass('is-active');
       $('#mp-menu ul').toggleClass('open');
     });
     slides();
+    video();
     if(!Modernizr.touch){
       parallax();
     }
