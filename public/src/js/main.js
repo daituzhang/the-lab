@@ -28,6 +28,14 @@
   };
 })(jQuery);
 function parallax(){ 
+  function setTransform(left,right) {
+    return {
+      'transform': 'translate('+ left +', ' + right + ')',
+      '-webkit-transform': 'translate('+ left +', ' + right + ')',
+      'transform': 'translate3d('+ left +', ' + right + ', 0)',
+      '-webkit-transform': 'translate3d('+ left +', ' + right + ', 0)'
+    }
+  }
   function setCss($$, scroll ,mode) {
     var opts = {
       'start': $$.offset().top,
@@ -36,19 +44,31 @@ function parallax(){
     //console.log(opts);
     if(( opts.start <= scroll.bottom) && (opts.stop >= scroll.top)) {
       if(mode == 'back') {
-        newCoord = (scroll.top-opts.stop) * 0.25;
+        newCoord = (scroll.top-opts.stop) * 0.15;
         $$.css({
           'background-position': '50% '+ newCoord + 'px'
         });
       }
       else if(mode == 'margin') {
         newCoord = (scroll.bottom-opts.stop) * -0.1;
-        $$.css({
-            'transform': 'translate(0, ' + newCoord + 'px'
-        }); 
+        $$.css(setTransform(0, newCoord+'px')); 
+      }
+      else if(mode == 'light') {
+        newCoord = (scroll.bottom-opts.stop)*0.1;
+        $$.css(setTransform(newCoord+'px',0)); 
+      }
+      else if(mode == 'photo') {
+        newCoord = (scroll.bottom-opts.stop)*-0.02;
+        $$.css(setTransform(newCoord+'px',0)); 
+      }
+      else if(mode == 'printer') {
+        newCoord = (scroll.bottom-opts.stop)*-0.1;
+        $$.css(setTransform(newCoord+'px',0)); 
       }
     }
   }
+  var lastScrollTop = 0;
+
   $(window).bind('scroll', function() {
     var scroll = { 
       top : $(window).scrollTop(),
@@ -56,11 +76,32 @@ function parallax(){
       bottom: $(window).scrollTop() + $(window).height()
 
     }
+
+    // if (scroll.top > lastScrollTop){
+    //   scroll.dir = 'down';
+    //   $('#mp-menu:not(.narrow)').addClass('narrow');
+    //   $('.scroller:not(.nav-narrow)').addClass('nav-narrow');
+    // } else {
+    //   scroll.dir = 'up';
+    //   $('#mp-menu.narrow').removeClass('narrow');
+    //   $('.scroller.nav-narrow').removeClass('nav-narrow');
+    // }
+    // lastScrollTop = scroll.top;
+
     $('.parallax').each(function(){
       setCss($(this),scroll, 'back');
     });
     $('.belt').each(function(){
       setCss($(this),scroll, 'margin');
+    });
+    $('#light').each(function(){
+      setCss($(this),scroll, 'light');
+    });
+    $('#photo').each(function(){
+      setCss($(this),scroll, 'photo');
+    });
+    $('#printer').each(function(){
+      setCss($(this),scroll, 'printer');
     });
   });
 }
@@ -153,7 +194,9 @@ $(document).ready(function() {
       $('#mp-menu ul').toggleClass('open');
     });
     slides();
-    parallax();
+    if(!Modernizr.touch){
+      parallax();
+    }
     $( ".datepicker" ).datepicker();
 });
 

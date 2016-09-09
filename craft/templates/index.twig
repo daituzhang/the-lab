@@ -2,6 +2,7 @@
 
 
 {% block content %}
+{% cache for 3 weeks %}
   <section id="hero">
     <div class="icon-icons_logo_veritcal hero-logo"></div>
     <div class="hero-back"></div>
@@ -20,11 +21,19 @@
   </section>
   {% set backgroundColor = entry.ourBoothTopBackgroundColor == '' ? "" : " background-color: " ~  entry.ourBoothTopBackgroundColor ~ ";" %}
   <section id="our-booth" style="{{backgroundColor}}">
+    <img class="img-move" id="light" src="src/img/light.png" alt="light">
+    <img class="img-move desktop-only" id="printer" src="src/img/printer.png" alt="printer">
+    <img class="img-move" id="photo" src="src/img/photo.png" alt="photo">
     <h1>{{entry.ourBoothTopHeader}}</h1>
     {{entry.ourBoothTopBody}}
+    <div class="mobile-only text-gold">
+      {% include 'include/_contactButton.twig' %}
+    </div>
     {% set parent = entry.ourBoothDropdowns %}
     {% include 'include/_getChildren.twig' %}
-    {% include 'include/_contactButton.twig' %}
+    <div class="desktop-tablet-only">
+      {% include 'include/_contactButton.twig' %}
+    </div>
   </section>
   {% set backgroundImage = entry.ourBoothMiddleBackgroundImage|length == 0 ? "" : " background: url(" ~  entry.ourBoothMiddleBackgroundImage|first.url ~ ") no-repeat #000; background-size: cover;" %}
   <section id="our-booth-middle" class="text-white parallax" style="{{ backgroundImage }}">
@@ -39,9 +48,11 @@
         {% for slide in entry.ourBoothSlides %}
           {% set backgroundImage = slide.backgroundImage|length == 0 ? "" : " background: url(" ~  slide.backgroundImage|first.url ~ ") no-repeat; background-size: cover; " %}
           <div class="slide{% if loop.first  %} active{% endif %} {{slide.classes}}" style="{{ backgroundImage }}">
-            <h2>{{ slide.title }}</h2>
-            {{ slide.body }}
-            {% include 'include/_contactButton.twig' %}
+            {% if slide.body %}
+              <h2>{{ slide.title }}</h2>
+              {{ slide.body }}
+              {% include 'include/_contactButton.twig' %}
+            {% endif %}
           </div>
         {% endfor %}
         <span class="arrow desktop-tablet-only arrow-right icon-right-open-big text-white"></span>
@@ -79,6 +90,6 @@
     {{ entry.contactBody}}
     {% include 'include/_form.twig' %}
   </section>
-
+{% endcache %}
 
 {% endblock %}

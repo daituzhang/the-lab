@@ -21,18 +21,12 @@ return array(
         'server' => 'localhost',
         'user' => 'root',
         'password' => '',
-        'database' => 'the-lab',
-    ),
-    'staging' => array(
-        'server' => 'localhost',
-        'user' => '',
-        'password' => '',
-        'database' => '',
+        'database' => 'the_lab',
     ),
     'accessdomain.com' => array(
         'server' => 'localhost',
-        'user' => 'root',
-        'password' => 'Key+1010fr',
-        'database' => 'the-lab',
+        'user' => 'the-lab',
+        'password' => '@Z4?zDs%',
+        'database' => 'the_lab',
     )
 );

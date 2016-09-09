@@ -17,6 +17,9 @@
   &.btn-submit {
     background-color: $gold;
     color: $black; 
+    font-size: 1.5rem;
+    font-family: 'Novecentosanswide-Bold';
+    margin-top: 30px;
     &:hover {
       background-color: transparent;
       color: $gold;
