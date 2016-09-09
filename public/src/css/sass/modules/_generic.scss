@@ -20,8 +20,10 @@ section {
     max-width: 1024px;
   }
   .inner {
-    @include center;
     width: 100%;
+    @include desktop-tablet {
+      @include center;
+    }
   }
   @include tablet-mobile {
     padding: 90px 5%;
