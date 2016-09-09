@@ -1006,7 +1006,8 @@ section {
     -ms-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
     -webkit-transform: translate3d(-50%, -50%, 0);
-    transform: translate3d(-50%, -50%, 0); }
+    transform: translate3d(-50%, -50%, 0);
+    width: 100%; }
   @media only screen and (max-width: 1024px) and (min-device-width: 1025px) {
     section {
       padding: 90px 5%; } }
