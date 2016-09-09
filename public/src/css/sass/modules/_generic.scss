@@ -21,6 +21,7 @@ section {
   }
   .inner {
     @include center;
+    width: 100%;
   }
   @include tablet-mobile {
     padding: 90px 5%;
