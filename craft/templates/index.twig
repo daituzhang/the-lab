@@ -7,9 +7,17 @@
     <div class="icon-icons_logo_veritcal hero-logo"></div>
     <div class="hero-back"></div>
     <div class="hero-play icon-play-circled"></div>
+    <video id="bgvid" playsinline autoplay muted loop>
+      <source src="src/video/TheLab_Short_Video_Homepage_op2.mp4" type="video/mp4">
+    </video>
     <video class="hero-video" controls>
       <source src="src/video/the-lab.mp4" type="video/mp4">
     </video>
+    <div class="video-close hamburger hamburger--collapse is-active">
+      <span class="hamburger-box">
+        <span class="hamburger-inner"></span>
+      </span>
+    </div>
   </section>
   {% set backgroundImage = entry.aboutBackgroundImage|length == 0 ? "" : " background: url(" ~  entry.aboutBackgroundImage|first.url ~ ") no-repeat #000; background-size: cover;" %}
   <section class="text-white parallax" id="about" style="{{ backgroundImage }}">
