@@ -23,6 +23,8 @@ section {
     width: 100%;
     @include desktop-tablet {
       @include center;
+      width: 90%;
+      max-width: 840px;
     }
   }
   @include tablet-mobile {
