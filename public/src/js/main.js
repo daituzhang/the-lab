@@ -1,32 +1,3 @@
-
-(function($){
-  $.fn.parallax = function(options){
-   
-    return this.each(function(){
-       var $$ = $(this);
-
-    offset = $$.offset();
-    console.log(offset);
-    var defaults = {
-      'start': offset.top,
-      'stop': offset.top + $$.height(),
-      'coeff': 0.95
-    };
-    var opts = $.extend(defaults, options);
-      $('').bind('scroll', function() {
-        windowTop = $('.scroller').scrollTop();
-        windowBottom = windowTop + $('.scroller').height();
-
-        if((windowBottom >= opts.start) && (windowTop <= opts.stop)) {
-          newCoord = windowTop * opts.coeff;
-          $$.css({
-              'background-position': '0 '+ newCoord + 'px'
-          });
-        }
-      });
-    });
-  };
-})(jQuery);
 function parallax(){ 
   function setTransform(left,right) {
     return {
@@ -180,29 +151,37 @@ function video(){
     $('.hero-video').get(0).pause();
   });
 }
-$(document).ready(function() {
-    //$('.parallax').parallax({ 'coeff':-0.15 });
-    //$('.parallax .inner').parallax({ 'coeff':1.05 });
-    $('a[href*="#"]:not([href="#"])').click(function() {
-      if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
-        var target = $(this.hash);
-        target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
-        if (target.length) {
-          $('html,body').animate({
-            scrollTop: target.offset().top - $('#mp-menu').height()
-          }, 1000);
-          return false;
-        }
+
+function nav(){
+  var menuHeight = $('#mp-menu').height();
+  $('#trigger').click(function(e){
+    $(this).toggleClass('is-active');
+    $('#mp-menu ul').toggleClass('open');
+  });
+  $('.mp-level>ul>li>a').click(function(e){
+    $('#trigger').removeClass('is-active');
+    $('#mp-menu ul').removeClass('open');
+    menuHeight = $('.mobile-top').height();
+  });
+  $('a[href*="#"]:not([href="#"])').click(function() {
+    if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+      var target = $(this.hash);
+      target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+      if (target.length) {
+        $('html,body').animate({
+          scrollTop: target.offset().top - menuHeight
+        }, 1000);
+        return false;
       }
-    });
+    }
+  });
+}
+$(document).ready(function() {
     $('.dropdown').click(function(e){
       $(this).toggleClass('open');
     });
 
-    $('#trigger').click(function(e){
-      $(this).toggleClass('is-active');
-      $('#mp-menu ul').toggleClass('open');
-    });
+    nav();
     slides();
     video();
     if(!Modernizr.touch){
