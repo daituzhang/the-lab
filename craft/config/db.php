@@ -28,5 +28,11 @@ return array(
         'user' => 'the-lab',
         'password' => '@Z4?zDs%',
         'database' => 'the_lab',
+    ),
+    'eventsbythelab.com' => array(
+        'server' => 'localhost',
+        'user' => 'the-lab',
+        'password' => '@Z4?zDs%',
+        'database' => 'the_lab',
     )
 );

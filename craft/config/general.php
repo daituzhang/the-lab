@@ -33,6 +33,15 @@ return array(
             'frontEndAssets' => '/src/',
             'siteName' => 'the-lab',
         )
+    ),
+
+    'eventsbythelab.com' => array(
+        'environmentVariables' => array(
+            'env' => 'dev',
+            'fileSystemPath' => '/var/www/the-lab/public/',
+            'frontEndAssets' => '/src/',
+            'siteName' => 'the-lab',
+        )
     )
 
 );
