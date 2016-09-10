@@ -1009,7 +1009,9 @@ section {
         -ms-transform: translate(-50%, -50%);
         transform: translate(-50%, -50%);
         -webkit-transform: translate3d(-50%, -50%, 0);
-        transform: translate3d(-50%, -50%, 0); } }
+        transform: translate3d(-50%, -50%, 0);
+        width: 90%;
+        max-width: 840px; } }
   @media only screen and (max-width: 1024px) and (min-device-width: 1025px) {
     section {
       padding: 90px 5%; } }
@@ -1115,11 +1117,28 @@ section#faq {
 section#hero {
   background-color: #FFF;
   padding: 0;
-  height: 632px; }
+  min-height: 0;
+  overflow: hidden; }
+  section#hero video#bgvid {
+    position: absolute;
+    left: 0;
+    top: 0;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    background-color: white;
+    opacity: 1;
+    -webkit-transition: opacity .5s ease;
+    transition: opacity .5s ease; }
   section#hero .hero-back {
-    background-color: rgba(0, 0, 0, 0.7);
+    background-color: rgba(0, 0, 0, 0.5);
+    position: absolute;
+    left: 0;
+    top: 0;
     width: 100%;
-    height: 100%; }
+    height: 100%;
+    z-index: 1; }
   section#hero .hero-logo {
     color: #000;
     font-size: 30rem;
@@ -1130,7 +1149,14 @@ section#hero {
     -ms-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
     -webkit-transform: translate3d(-50%, -50%, 0);
-    transform: translate3d(-50%, -50%, 0); }
+    transform: translate3d(-50%, -50%, 0);
+    z-index: 1; }
+    @media only screen and (max-width: 760px) and (min-device-width: 1025px) {
+      section#hero .hero-logo {
+        font-size: 18rem; } }
+    @media only screen and (max-device-width: 760px) {
+      section#hero .hero-logo {
+        font-size: 18rem; } }
   section#hero .hero-play {
     color: #FFF;
     font-size: 8rem;
@@ -1142,11 +1168,9 @@ section#hero {
     -ms-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
     -webkit-transform: translate3d(-50%, -50%, 0);
-    transform: translate3d(-50%, -50%, 0); }
+    transform: translate3d(-50%, -50%, 0);
+    z-index: 1; }
   section#hero .hero-video {
-    position: absolute;
-    left: 0;
-    top: 0;
     width: 100%;
     height: 100%;
     opacity: 0;
@@ -1154,6 +1178,17 @@ section#hero {
     -webkit-transition: all .5s ease;
     transition: all .5s ease; }
     section#hero .hero-video.start {
+      opacity: 1;
+      z-index: 2; }
+  section#hero .video-close {
+    position: absolute;
+    right: 0;
+    top: 0;
+    opacity: 0;
+    z-index: -1;
+    -webkit-transition: all .5s ease;
+    transition: all .5s ease; }
+    section#hero .video-close.start {
       opacity: 1;
       z-index: 2; }
 

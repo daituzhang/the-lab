@@ -1,4 +1,7 @@
 {% extends "_layout" %}
+{% block mobileLogo %}
+  <a href="/"><span class="mobile-logo icon-icons_logo_horizontal"></span></a>
+{% endblock %}
 {% block nav %}
 {% cache for 3 weeks %}
   <li><a href="/#about">About</a></li>
