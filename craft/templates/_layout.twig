@@ -52,7 +52,7 @@
         <li><a href="#our-booth">Our Booth</a></li>
         <li><a href="#package">Packages</a></li>
         <li class="desktop-only text-white nav-logo"><a href="#hero"><span class="icon-icons_logo_horizontal"></span></a></li>
-        <li><a href="#about">Galleries</a></li>
+        <li><a href="{{ siteInfo.facebook }}">Galleries</a></li>
         <li><a href="/faq">FAQ</a></li>
         <li><a href="#contact">Contact</a></li>
        {% endblock %}
@@ -70,16 +70,16 @@
         <div class="container text-center">
           <ul>
             {% if siteInfo.facebook %}
-            <li class="social"><a class="icon-icons_footer_fb" href="{{ siteInfo.facebook }}"></a></li>
+            <li class="social"><a class="icon-icons_footer_fb" target="_blank" href="{{ siteInfo.facebook }}"></a></li>
             {% endif %}
             {% if siteInfo.instagram %}
-              <li class="social"><a class="icon-icons_footer_insta" href="{{ siteInfo.instagram }}"></a></li>
+              <li class="social"><a class="icon-icons_footer_insta" target="_blank" href="{{ siteInfo.instagram }}"></a></li>
             {% endif %}
             {% if siteInfo.twitter %}
-              <li class="social"><a class="icon-icons_footer_twitter" href="{{ siteInfo.twitter }}"></a></li>
+              <li class="social"><a class="icon-icons_footer_twitter" target="_blank" href="{{ siteInfo.twitter }}"></a></li>
             {% endif %}
             {% if siteInfo.pinterest %}
-              <li class="social"><a class="icon-icons_footer_pinterest" href="{{ siteInfo.pinterest }}"></a></li>
+              <li class="social"><a class="icon-icons_footer_pinterest" target="_blank" href="{{ siteInfo.pinterest }}"></a></li>
             {% endif %}
           </ul>
           <p>info@eventsbythelab.com  |  <a href="tel:2149454593">214.945.4593</a><br>
