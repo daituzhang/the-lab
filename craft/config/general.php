@@ -36,6 +36,7 @@ return array(
     ),
 
     'eventsbythelab.com' => array(
+        'devMode' => true,
         'environmentVariables' => array(
             'env' => 'dev',
             'fileSystemPath' => '/var/www/the-lab/public/',
