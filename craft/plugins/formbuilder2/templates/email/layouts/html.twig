@@ -56,28 +56,44 @@
     </style>
 </head>
 
+
 {% set templateBackgroundColor = template.templateStyles.templateBackgroundColor is defined ? template.templateStyles.templateBackgroundColor : 'transparent' %}
 {% set bodyBackgroundColor = template.templateStyles.templateBodyBackgroundColor is defined ? template.templateStyles.templateBodyBackgroundColor : 'transparent' %}
-{% set bodyContainerWidth = template.templateStyles.templateBodyContainerWidth is defined ? template.templateStyles.templateBodyContainerWidth : '500' %}
+{% set bodyContainerWidth = template.templateStyles.templateBodyContainerWidth is defined ? template.templateStyles.templateBodyContainerWidth : '100%' %}
 {% set bodyText = template.bodyText is defined ? template.bodyText : null %}
 {% set bodyTextSize = template.templateStyles.templateBodyTextSize is defined ? template.templateStyles.templateBodyTextSize : '12' %}
 {% set bodyTextColor = template.templateStyles.templateBodyTextColor is defined ? template.templateStyles.templateBodyTextColor : 'inherit' %}
 {% set footerText = template.footerText is defined ? template.footerText : null %}
 {% set footerTextSize = template.templateStyles.templateFooterTextSize is defined ? template.templateStyles.templateFooterTextSize : '12;' %}
 {% set footerTextColor = template.templateStyles.templateFooterTextColor is defined ? template.templateStyles.templateFooterTextColor : 'inherit' %}
-
+{% set logo = template.templateContent.templateLogo is defined ? craft.assets.id(template.templateContent.templateLogo).first() : null %}
+{% set logoAlignment = template.templateContent.templateLogoAlignment is defined ? template.templateContent.templateLogoAlignment : 'left' %}
 
 {% set customEmailDropDown = notificationSettings.customEmailField is defined ? notificationSettings.customEmailField : null %}
 
 <body width="100%" style="margin: 0; font-family: HelveticaNeue, sans-serif; background-color: {{ templateBackgroundColor }}">
 
-
+    {% if logo %}
+    <table cellspacing="0" cellpadding="0" border="0" width="{{ bodyContainerWidth }}" style="margin: auto;" class="email-container" role="presentation">
+		<tr>
+			<td>
+    			<table  align="{{ logoAlignment }}" cellspacing="0" cellpadding="0" border="0" width="200" style="margin: auto;" class="email-container" role="presentation">
+        			<tr>
+	        			<td>
+							<img src="{{ logo.getUrl() }}" style="max-width: 100%; margin-top: 10px; margin-bottom: 20px;" alt="{{ logo.slug }}" border="0">
+	        			</td>
+        			</tr>
+    			</table>
+			</td>
+		</tr>
+    </table>
+    {% endif %}
     
     <table cellspacing="0" cellpadding="0" border="0" width="{{ bodyContainerWidth }}" style="margin: auto; background-color: {{ bodyBackgroundColor }}" class="email-container" role="presentation">
         {% if bodyText %}
         <tr>
             <td style="mso-height-rule: exactly; padding: 15px;">
-                <span style="line-height: 1; font-size: {{ bodyTextSize ~ 'px' }}; color: {{ bodyTextColor }}">{{ bodyText }}</span>
+                <span style="line-height: 1; font-size: {{ bodyTextSize ~ 'px' }}; color: {{ bodyTextColor }}">{{ bodyText |nl2br }}</span>
             </td>
         </tr>
         {% endif %}
@@ -118,7 +134,7 @@
     <table cellspacing="0" cellpadding="0" border="0" align="center" width="{{ bodyContainerWidth }}" style="margin: auto;" class="email-container" role="presentation">
         <tr>
             <td style="mso-height-rule: exactly; padding: 25px 15px 15px 15px;">
-                <span style="line-height: 1; font-size: {{ footerTextSize ~ 'px' }}; color: {{ footerTextColor }}">{{ footerText }}</span>
+                <span style="line-height: 1; font-size: {{ footerTextSize ~ 'px' }}; color: {{ footerTextColor }}">{{ footerText |nl2br }}</span>
             </td>
         </tr>
     </table>
