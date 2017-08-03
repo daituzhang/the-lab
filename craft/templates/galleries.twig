@@ -1,0 +1,38 @@
+{% extends "_layout" %}
+{% block mobileLogo %}
+  <a href="/"><span class="mobile-logo icon-icons_logo_horizontal"></span></a>
+{% endblock %}
+{% block nav %}
+{% cache for 3 weeks %}
+  <li><a href="/#about">About</a></li>
+  <li><a href="/#our-booth">Our Booth</a></li>
+  <li><a href="/#package">Packages</a></li>
+  <li class="desktop-only text-white nav-logo"><a href="/#hero"><span class="icon-icons_logo_horizontal"></span></a></li>
+  <li><a href="/galleries">Galleries</a></li>
+  <li><a href="/faq">FAQ</a></li>
+  <li><a href="/#contact">Contact</a></li>
+{% endcache %}
+{% endblock %}
+
+{% block content %}
+{% cache for 3 weeks %}
+{% set galleryImageLeft = entry.galleryImageLeft|length == 0 ? "" : " background: url(" ~  entry.galleryImageLeft|first.url ~ ") no-repeat;   background-size: cover;" %}
+{% set galleryImageRight = entry.galleryImageRight|length == 0 ? "" : " background: url(" ~  entry.galleryImageRight|first.url ~ ") no-repeat;   background-size: cover;" %}
+  <section id="galleries" class="text-white">
+   <h1>{{entry.gallerisTitle}}</h1>
+   <div class="gallery-box-container">
+    <a class="gallery-box" target="_blank" href="{{entry.galleryLinkLeft}}" style="{{galleryImageLeft}}">
+      <div class="gallery-hover">
+        <h2>{{entry.galleryHeadingLeft}}</h2>
+      </div>
+    </a>
+    <a class="gallery-box" target="_blank" href="{{entry.galleryLinkRight}}" style="{{galleryImageLeft}}">
+      <div class="gallery-hover">
+        <h2>{{entry.galleryHeadingRight}}</h2>
+      </div>
+    </a>
+     
+   </div>
+  </section>
+{% endcache %}
+{% endblock %}

@@ -1649,3 +1649,80 @@ section.staff {
 
 .contact .btn {
   margin-left: 0; }
+
+#galleries {
+  padding: 0;
+  min-height: 0; }
+  #galleries h1 p {
+    font-size: 1.5rem;
+    margin-bottom: 0;
+    line-height: 1; }
+  #galleries .gallery-box-container {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    margin-bottom: 135px; }
+  #galleries .gallery-box {
+    width: 277px;
+    height: 277px;
+    margin: 15px 35px;
+    -webkit-transition: -webkit-filter .3s ease;
+    transition: -webkit-filter .3s ease;
+    transition: filter .3s ease;
+    transition: filter .3s ease, -webkit-filter .3s ease;
+    -webkit-filter: grayscale(0%);
+    filter: grayscale(0%); }
+    #galleries .gallery-box:hover {
+      -webkit-filter: grayscale(100%);
+      filter: grayscale(100%); }
+      #galleries .gallery-box:hover .gallery-hover {
+        opacity: 1; }
+  #galleries .gallery-hover {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    -webkit-filter: none;
+    filter: none;
+    opacity: 0;
+    -webkit-transition: opacity .3s ease;
+    transition: opacity .3s ease; }
+    #galleries .gallery-hover h2 {
+      font-size: 5.1rem;
+      letter-spacing: 7px;
+      left: 50%;
+      position: absolute;
+      top: 50%;
+      -webkit-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+      transform: translate(-50%, -50%);
+      -webkit-transform: translate3d(-50%, -50%, 0);
+      transform: translate3d(-50%, -50%, 0); }
+  @media only screen and (max-width: 760px) and (min-device-width: 1025px) {
+    #galleries {
+      padding: 0; }
+      #galleries h1 {
+        display: none; }
+      #galleries .gallery-box-container {
+        margin-bottom: 15px; }
+      #galleries .gallery-box {
+        width: 255px; } }
+  @media only screen and (max-device-width: 760px) {
+    #galleries {
+      padding: 0; }
+      #galleries h1 {
+        display: none; }
+      #galleries .gallery-box-container {
+        margin-bottom: 15px; }
+      #galleries .gallery-box {
+        width: 255px; } }
