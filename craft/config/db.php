@@ -34,5 +34,11 @@ return array(
         'user' => 'the-lab',
         'password' => '@Z4?zDs%',
         'database' => 'the_lab',
+    ),
+    'thelabphotobooth.com' => array(
+        'server' => 'localhost',
+        'user' => 'the-lab',
+        'password' => '@Z4?zDs%',
+        'database' => 'the_lab',
     )
 );

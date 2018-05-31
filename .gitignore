@@ -1,4 +1,4 @@
-a#ignore sass-cache#
+#ignore sass-cache#
 .sass-cache/*
 *.scssc
 .vagrant
