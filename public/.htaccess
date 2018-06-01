@@ -1,6 +1,8 @@
 <IfModule mod_rewrite.c>
 	RewriteEngine On
 
+  RewriteRule ^(.*)$ http://thelabphotobooth.com/$1 [R=301,L]
+
 	# Send would-be 404 requests to Craft
 	RewriteCond %{REQUEST_FILENAME} !-f
 	RewriteCond %{REQUEST_FILENAME} !-d
