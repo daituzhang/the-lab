@@ -29,6 +29,7 @@
   <link rel="stylesheet" type="text/css" href="{{ craft.config.environmentVariables['frontEndAssets'] }}css/vendor/hamburgers/hamburgers.css" />
   <script src="{{ craft.config.environmentVariables['frontEndAssets'] }}/js/vendor/modernizr.custom.js"></script>
 	<link rel="stylesheet" href="{{ craft.config.environmentVariables['frontEndAssets'] }}css/site.css">
+  <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyB4k9so9J4UnQ301RMjRNKoRPEuffWQ9iM&signed_in=true&libraries=places"></script>
   {% endcache %}
 	<!--[if lt IE 9]>
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
@@ -70,6 +71,9 @@
     	{% block footer %}
       {% cache for 3 weeks %}
       <footer>
+        <div class="google-rating">
+          
+        </div>
         <div class="container text-center">
           <ul>
             {% if siteInfo.facebook %}
@@ -85,8 +89,28 @@
               <li class="social"><a class="icon-icons_footer_pinterest" target="_blank" href="{{ siteInfo.pinterest }}"></a></li>
             {% endif %}
           </ul>
-          <p>info@eventsbythelab.com  |  <a href="tel:2149454593">214.945.4593</a><br>
+          <div class="grid">
+            <div class="col col-1-of-3">
+              <div class="rating-up" id="google-rating">
+                <div id="google-map-plug"></div>              
+                <img src="/src/img/google-logo.svg" alt="">
+                <div class="icon-star"></div>
+                <div class="icon-star"></div>
+                <div class="icon-star"></div>
+                <div class="icon-star"></div>
+                <div class="icon-star"></div>
+              </div>
+              <div class="rating-bottom">
+                GOOGLE <span id="google-rating-number"></span> STAR RATING
+              </div>
+            </div>
+            <div class="col col-1-of-3">
+              <p>info@eventsbythelab.com  |  <a href="tel:2149454593">214.945.4593</a><br>
         welcome | close up | come on in | experience packages | FAQ</p>
+            </div>
+            <div class="col col-1-of-3"></div>
+          </div>
+          
         </div>
       </footer>
     </div>
@@ -111,6 +135,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <script src="{{ craft.config.environmentVariables['frontEndAssets'] }}js/vendor/classie.js"></script>
 
     <script src="{{ craft.config.environmentVariables['frontEndAssets'] }}js/vendor/jquery.mobile.custom.min.js"></script>
+      <script src="{{ craft.config.environmentVariables['frontEndAssets'] }}js/module/google-places.js"></script>
+
   <script src="{{ craft.config.environmentVariables['frontEndAssets'] }}js/main.js"></script>
   {% endcache %}
 </body>

@@ -17,6 +17,19 @@ footer {
     background-color: $off-white;
     padding: 50px;
   }
+  .rating-up {
+    display: flex;
+    justify-content: center;
+    img {
+      width: 25%;
+      height: 100%;
+      margin-right: 5px;
+    }
+    .icon-star {
+      font-size: 20px;
+      align-self: center;
+    }
+  }
   li {
     list-style: none;
     &.location:not(:last-child){

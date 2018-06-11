@@ -177,6 +177,13 @@ function nav(){
   });
 }
 $(document).ready(function() {
+            console.log('hha');
+    $("#google-rating").googlePlaces({
+          placeId: 'ChIJAQDIs8KYToYRh18eoD3CUYM' //Find placeID @: https://developers.google.com/places/place-id
+        , render: ['reviews']
+        , min_rating: 4
+        , max_rows:4
+     });
     $('.dropdown').click(function(e){
       $(this).toggleClass('open');
     });
@@ -188,5 +195,7 @@ $(document).ready(function() {
       parallax();
     }
     $( ".datepicker" ).datepicker();
+
+
 });
 
