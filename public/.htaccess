@@ -1,9 +1,12 @@
 <IfModule mod_rewrite.c>
 	RewriteEngine On
 
-  RewriteCond %{HTTP_HOST} ^www.eventsbythelab\.com$ [NC][OR]
   RewriteCond %{HTTP_HOST} ^eventsbythelab\.com$ [NC]
   RewriteRule ^(.*)$ http://thelabphotobooth.com/$1 [R=301,L]
+
+  RewriteCond %{HTTP_HOST} ^www.eventsbythelab\.com$ [NC]
+  RewriteRule ^(.*)$ http://thelabphotobooth.com/$1 [R=301,L]
+
 
 	# Send would-be 404 requests to Craft
 	RewriteCond %{REQUEST_FILENAME} !-f
