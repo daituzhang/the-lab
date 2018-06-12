@@ -17,9 +17,16 @@ footer {
     background-color: $off-white;
     padding: 50px;
   }
+  a.rating {
+    text-decoration: none;
+    &:hover {
+      text-decoration: none;
+    }
+  }
   .rating-up {
     display: flex;
     justify-content: center;
+
     img {
       width: 67px;
       height: 100%;

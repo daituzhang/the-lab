@@ -946,6 +946,10 @@ footer {
   footer .form-container {
     background-color: #f5f5f5;
     padding: 50px; }
+  footer a.rating {
+    text-decoration: none; }
+    footer a.rating:hover {
+      text-decoration: none; }
   footer .rating-up {
     display: -webkit-box;
     display: -webkit-flex;
