@@ -1,6 +1,13 @@
 html {
   background-color: $black;
 }
+.grid-flex {
+  display: flex;
+  flex-wrap: wrap;
+}
+.flex-col {
+  width: 33%;
+}
 section {
   padding: 130px 260px;
   text-align: center;
@@ -344,4 +351,7 @@ hr {
   section {
     text-align: center;
   }    
+  .flex-col {
+    width: 100%;
+  }
 }

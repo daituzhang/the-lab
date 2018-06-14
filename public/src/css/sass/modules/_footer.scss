@@ -37,6 +37,22 @@ footer {
       align-self: center;
     }
   }
+
+  #yelp-rating {
+    .rating-up {
+      img {
+        width: 40px;
+        margin-right: 3px;
+      }
+    }
+    .icon-star {
+      background: $red-yelp;
+      padding: 2px 2px 3.5px 3px;
+      border-radius: 4px;
+      margin-left: 3px;
+      color: $white;
+    }
+  }
   li {
     list-style: none;
     &.location:not(:last-child){

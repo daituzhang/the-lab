@@ -176,14 +176,28 @@ function nav(){
     }
   });
 }
+
+function getYelpRating() {
+  $.ajax({
+    url: '/get-yelp-rating.php',
+    method: 'GET',
+    success: function(data){
+      $('#yelp-rating-number').html(data);
+        for(var i = 5; i>Math.ceil(data); i--){
+          $('#yelp-rating .icon-star').eq(i-1).addClass('empty');
+        }
+    }
+  });
+}
+
 $(document).ready(function() {
-            console.log('hha');
     $("#google-rating").googlePlaces({
           placeId: 'ChIJAQDIs8KYToYRh18eoD3CUYM' //Find placeID @: https://developers.google.com/places/place-id
         , render: ['reviews']
         , min_rating: 4
         , max_rows:4
      });
+    getYelpRating();
     $('.dropdown').click(function(e){
       $(this).toggleClass('open');
     });

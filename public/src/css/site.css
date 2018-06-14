@@ -968,6 +968,15 @@ footer {
       -webkit-align-self: center;
       -ms-flex-item-align: center;
       align-self: center; }
+  footer #yelp-rating .rating-up img {
+    width: 40px;
+    margin-right: 3px; }
+  footer #yelp-rating .icon-star {
+    background: #dd050b;
+    padding: 2px 2px 3.5px 3px;
+    border-radius: 4px;
+    margin-left: 3px;
+    color: #FFF; }
   footer li {
     list-style: none; }
     footer li.location:not(:last-child):after {
@@ -1008,6 +1017,18 @@ footer {
 
 html {
   background-color: #000; }
+
+.grid-flex {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap; }
+
+.flex-col {
+  width: 33%; }
 
 section {
   padding: 130px 260px;
@@ -1433,11 +1454,15 @@ hr {
 
 @media only screen and (max-width: 760px) and (min-device-width: 1025px) {
   section {
-    text-align: center; } }
+    text-align: center; }
+  .flex-col {
+    width: 100%; } }
 
 @media only screen and (max-device-width: 760px) {
   section {
-    text-align: center; } }
+    text-align: center; }
+  .flex-col {
+    width: 100%; } }
 
 nav#mp-menu {
   z-index: 3;
