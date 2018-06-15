@@ -56,6 +56,7 @@ footer {
       padding-left: 45px;
     }
   }
+
   li {
     list-style: none;
     &.location:not(:last-child){
@@ -104,5 +105,10 @@ footer {
     ul:not(:last-child) {
       margin-bottom: 10px;
     }
+  }
+  @include mobile-only {
+    .flex-col:nth-child(1) { order: 2; }
+    .flex-col:nth-child(2) { order: 1; }
+    .flex-col:nth-child(3) { order: 3; }
   }
 }
