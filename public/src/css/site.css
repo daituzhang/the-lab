@@ -977,6 +977,8 @@ footer {
     border-radius: 4px;
     margin-left: 3px;
     color: #FFF; }
+  footer #yelp-rating .rating-bottom {
+    padding-left: 45px; }
   footer li {
     list-style: none; }
     footer li.location:not(:last-child):after {
