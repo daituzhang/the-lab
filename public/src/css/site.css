@@ -1031,7 +1031,11 @@ footer {
       -webkit-box-ordinal-group: 4;
       -webkit-order: 3;
       -ms-flex-order: 3;
-      order: 3; } }
+      order: 3; }
+    footer #yelp-rating .rating-up {
+      margin-left: -20px; }
+    footer #yelp-rating .rating-bottom {
+      padding-left: 0; } }
   @media only screen and (max-device-width: 760px) {
     footer .flex-col:nth-child(1) {
       -webkit-box-ordinal-group: 3;
@@ -1047,7 +1051,11 @@ footer {
       -webkit-box-ordinal-group: 4;
       -webkit-order: 3;
       -ms-flex-order: 3;
-      order: 3; } }
+      order: 3; }
+    footer #yelp-rating .rating-up {
+      margin-left: -20px; }
+    footer #yelp-rating .rating-bottom {
+      padding-left: 0; } }
 
 html {
   background-color: #000; }
