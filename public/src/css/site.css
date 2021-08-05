@@ -1115,6 +1115,8 @@ section {
 .dropdown {
   font-size: 1.5rem;
   margin: 7px 0; }
+  .dropdown ul {
+    margin-bottom: 35px; }
   .dropdown .dropdown-inner {
     max-height: 0;
     overflow: hidden;
