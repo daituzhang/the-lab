@@ -105,10 +105,12 @@
               </div>
             </a>
             <div class="flex-col">
-            {% block footerlink %}
-              <p><a href="mailto:hello@eventsbythelab.com">hello@eventsbythelab.com</a>  |  <a href="tel:2149454593">214.945.4593</a><br>
-              <a href="#about">welcome</a> | <a href="#our-booth">close up</a> | <a href="#our-booth-middle">STEP INTO THE LAB</a> | <a href="#package">PACKAGES AND PRICING</a> | <a href="/faq">FAQ</a></p>
-            {% endblock %}
+            <p>
+              <a href="mailto:hello@eventsbythelab.com">hello@eventsbythelab.com</a>  |  <a href="tel:2149454593">214.945.4593</a><br>
+              {% block footerlink %}
+                <a href="#about">welcome</a> | <a href="#our-booth">close up</a> | <a href="#our-booth-middle">STEP INTO THE LAB</a> | <a href="#package">PACKAGES AND PRICING</a> | <a href="/faq">FAQ</a>
+              {% endblock %}
+              </p>
             </div>
              <a href="https://www.yelp.com/biz/the-lab-photo-booth-dallas" target="_blank" class="flex-col" id="yelp-rating">
               <div class="rating-up">
