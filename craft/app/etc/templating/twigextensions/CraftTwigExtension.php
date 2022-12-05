@@ -72,7 +72,6 @@ class CraftTwigExtension extends \Twig_Extension
 				new RequireEdition_TokenParser(),
 				new RequireLogin_TokenParser(),
 				new RequirePermission_TokenParser(),
-				new Switch_TokenParser(),
 
 				new DeprecatedTag_TokenParser('endpaginate'),
 			));
@@ -393,6 +392,10 @@ class CraftTwigExtension extends \Twig_Extension
 				}
 			}
 		}
+		else
+		{
+			$index = null;
+		}
 
 		if ($index !== false)
 		{
@@ -551,7 +554,7 @@ class CraftTwigExtension extends \Twig_Extension
 			$globals['logoutUrl'] = UrlHelper::getUrl(craft()->config->getLogoutPath());
 			$globals['isInstalled'] = $isInstalled;
 
-			if ($isInstalled)
+			if ($isInstalled && !craft()->isConsole())
 			{
 				$globals['currentUser'] = craft()->userSession->getUser();
 			}

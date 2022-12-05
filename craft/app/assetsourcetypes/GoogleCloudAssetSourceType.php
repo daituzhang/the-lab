@@ -386,7 +386,7 @@ class GoogleCloudAssetSourceType extends BaseAssetSourceType
 			'secret'     => array(AttributeType::String, 'required' => true),
 			'bucket'     => array(AttributeType::String, 'required' => true),
 			'publicURLs' => array(AttributeType::Bool,   'default' => true),
-			'urlPrefix'  => array(AttributeType::String, 'required' => true),
+			'urlPrefix'  => array(AttributeType::String),
 			'subfolder'  => array(AttributeType::String, 'default' => ''),
 			'expires'    => array(AttributeType::String, 'default' => ''),
 		);
@@ -631,7 +631,7 @@ class GoogleCloudAssetSourceType extends BaseAssetSourceType
 	{
 		$this->_prepareForRequests();
 		$bucket = $this->getSettings()->bucket;
-		$objectsToDelete = $this->_googleCloud->getBucket($bucket, $this->_getPathPrefix().$parentFolder->path.$folderName);
+		$objectsToDelete = $this->_googleCloud->getBucket($bucket, $this->_getPathPrefix().$parentFolder->path.$folderName.'/');
 
 		foreach ($objectsToDelete as $uri)
 		{
