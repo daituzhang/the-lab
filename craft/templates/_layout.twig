@@ -17,10 +17,10 @@
 	<meta charset="utf-8" />
 	<meta content="initial-scale=1, minimum-scale=1, width=device-width" name="viewport">
   <meta http-equiv="x-ua-compatible" content="IE=edge">
-  <meta name="description" value="{% block metaDescription %}{{ seo.metaDescription }}{% endblock %}">
+  <meta name="description" value="{% block metaDescription %}{{ seoDescription }}{% endblock %}">
 
   <meta name="google-site-verification" content="1Djs-1-zWByyLacEHYfM7DIZzBUBP8nK6zSQvDz5Bik" />
-	<title>{% if title is defined %}{{ title }} - {% endif %}{{ seo.metaTitle }}</title>
+	<title>{% if seoTitle is defined %}{{ seoTitle }} - {% endif %}{{ seo.metaTitle }}</title>
 
 	<link rel="home" href="{{ siteUrl }}" />
   <link rel="shortcut icon" href="../favicon.ico">
