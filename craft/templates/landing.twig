@@ -19,7 +19,7 @@
   <section id="landing" class="text-white">
     <h1>{{entry.header}}</h1>
     {{entry.body}}
-    {% set parent = entry.carouselImages %}
+    {% set parent = entry.carousel %}
     <div class="carousel">
     {% for child in parent %}
       <image alt="{{child.title}}" src="slide.image|first.url">
