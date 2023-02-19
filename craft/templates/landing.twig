@@ -22,7 +22,7 @@
     {% set parent = entry.carousel %}
     <div class="carousel">
     {% for child in parent %}
-      <image alt="{{child.title}}" src="slide.image|first.url">
+      <image alt="{{child.title}}" src="{{slide.image|first.url}}">
     {% endfor %}  
     </div>
 
