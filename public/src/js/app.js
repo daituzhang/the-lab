@@ -86,7 +86,19 @@ webpackJsonp([0],[
 	      setCss($(this),scroll, 'printer');
 	    });
 	  });
-	}
+	
+	
+	function carousel() {
+		$('.carousel').slick({
+			infinite: true,
+			slidesToShow: 3,
+			slidesToScroll: 1,
+			autoplay: true,
+			autoplaySpeed: 0,
+			speed: 3000,
+			cssEase: "linear",
+		});
+	}}
 	
 	function slides(){
 	  var len = $('.slide').length;
@@ -194,7 +206,9 @@ webpackJsonp([0],[
 	
 	    nav();
 	    slides();
-	    video();
+			video();
+			carousel();
+			
 	    if(!Modernizr.touch){
 	      parallax();
 	    }

@@ -1,6 +1,9 @@
 {
   "name": "fpma",
   "version": "0.0.0",
+  "scripts": {
+    "buildjs": "gulp js"
+  },
   "dependencies": {},
   "devDependencies": {
     "browser-sync": "^2.11.0",

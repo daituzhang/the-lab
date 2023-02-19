@@ -190,6 +190,18 @@ function getYelpRating() {
   });
 }
 
+function carousel() {
+  $('.carousel').slick({
+    infinite: true,
+    slidesToShow: 3,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 0,
+    speed: 3000,
+    cssEase: "linear",
+  });
+}
+
 $(document).ready(function() {
     $("#google-rating").googlePlaces({
           placeId: 'ChIJAQDIs8KYToYRh18eoD3CUYM' //Find placeID @: https://developers.google.com/places/place-id
@@ -198,6 +210,8 @@ $(document).ready(function() {
         , max_rows:4
      });
     getYelpRating();
+    carousel();
+    
     $('.dropdown').click(function(e){
       $(this).toggleClass('open');
     });
