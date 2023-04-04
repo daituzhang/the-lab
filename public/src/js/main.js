@@ -195,6 +195,7 @@ function carousel() {
     infinite: true,
     slidesToShow: 3,
     slidesToScroll: 1,
+    arrows: false,			    
     autoplay: true,
     autoplaySpeed: 0,
     speed: 3000,
