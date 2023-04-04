@@ -2,7 +2,8 @@
   "name": "fpma",
   "version": "0.0.0",
   "scripts": {
-    "buildjs": "gulp js"
+    "buildjs": "gulp js",
+    "buildsass": "gulp sass"
   },
   "dependencies": {},
   "devDependencies": {

@@ -92,6 +92,7 @@ webpackJsonp([0],[
 		$('.carousel').slick({
 			infinite: true,
 			slidesToShow: 3,
+			arrows: false,			
 			slidesToScroll: 1,
 			autoplay: true,
 			autoplaySpeed: 0,
