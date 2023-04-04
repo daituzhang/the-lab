@@ -1826,12 +1826,17 @@ section.staff {
       #galleries .gallery-box {
         width: 255px; } }
 
-#landing {
+section#landing {
   letter-spacing: 2px;
-  font-size: 22px; }
-  #landing h1 {
-    font-size: 30px; }
-  #landing h2 {
-    font-size: 25px; }
-  #landing p {
-    text-transform: none; }
+  padding: 130px 100px; }
+  section#landing a {
+    color: #c0bd31;
+    text-decoration: none; }
+  section#landing h2 {
+    font-size: 25px;
+    line-height: 1.2; }
+  section#landing p {
+    line-height: 1.2;
+    font-size: 15px; }
+  section#landing .carousel {
+    margin-top: 150px; }

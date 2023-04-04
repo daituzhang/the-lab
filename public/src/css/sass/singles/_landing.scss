@@ -1,13 +1,19 @@
-#landing {
+section#landing {
   letter-spacing: 2px;
-  font-size: 22px;
-  h1 {
-    font-size: 30px;
+  padding: 130px 100px;
+  a {
+    color: $gold;
+    text-decoration: none;
   }
   h2 {
     font-size: 25px;
+    line-height: 1.2;
   }
   p {
-    text-transform: none;
+    line-height: 1.2;
+    font-size: 15px;
+  }
+  .carousel {
+    margin-top: 150px;
   }
 }
