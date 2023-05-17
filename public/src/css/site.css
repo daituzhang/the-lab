@@ -1830,15 +1830,18 @@ section#landing {
   letter-spacing: 2px;
   padding: 130px 100px; }
   section#landing h1 {
-    font-size: 40px; }
+    font-size: 34px; }
   section#landing a {
     color: #c0bd31;
     text-decoration: none; }
   section#landing h2 {
-    font-size: 32px;
+    font-size: 27px;
     line-height: 1.2; }
   section#landing p {
     line-height: 1.2;
-    font-size: 29spx; }
+    font-size: 26px; }
   section#landing .carousel {
     margin-top: 150px; }
+    section#landing .carousel image {
+      width: 200px;
+      max-width: 200px; }

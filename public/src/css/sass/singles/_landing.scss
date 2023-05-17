@@ -2,21 +2,25 @@ section#landing {
   letter-spacing: 2px;
   padding: 130px 100px;
   h1 {
-    font-size: 40px
+    font-size: 34px
   }
   a {
     color: $gold;
     text-decoration: none;
   }
   h2 {
-    font-size: 32px;
+    font-size: 27px;
     line-height: 1.2;
   }
   p {
     line-height: 1.2;
-    font-size: 29spx;
+    font-size: 26px;
   }
   .carousel {
     margin-top: 150px;
+    image {
+      width: 200px;
+      max-width: 200px;
+    }
   }
 }
