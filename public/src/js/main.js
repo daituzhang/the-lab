@@ -193,7 +193,7 @@ function getYelpRating() {
 function carousel() {
   $('.carousel').slick({
     infinite: true,
-    slidesToShow: 3,
+    slidesToShow: 9,
     slidesToScroll: 1,
     arrows: false,			    
     autoplay: true,
