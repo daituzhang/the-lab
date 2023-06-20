@@ -193,13 +193,13 @@ function getYelpRating() {
 function carousel() {
   $('.carousel').slick({
     infinite: true,
-    slidesToShow: 9,
-    slidesToScroll: 1,
-    arrows: false,			    
-    autoplay: true,
-    autoplaySpeed: 0,
-    speed: 3000,
-    cssEase: "linear",
+    slidesToShow: 4,
+  slidesToScroll: 4,
+      autoplay: true,
+  autoplaySpeed: 0,
+      arrows: false,
+speed:3000,
+      cssEase: 'linear'
   });
 }
 
